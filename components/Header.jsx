@@ -23,7 +23,7 @@ export default function Header({ locale = 'ua' }) {
         <ul className="navbar-nav ms-auto d-flex flex-row align-items-center">
           <li className="nav-item dropdown">
             <span
-              className="nav-link dropdown-toggle text-dark px-3 fs-5"
+              className="nav-link dropdown-toggle text-dark px-3 fs-5 fw-semibold"
               id="whatWeDoDropdown"
               role="button"
               data-bs-toggle="dropdown"
@@ -39,7 +39,7 @@ export default function Header({ locale = 'ua' }) {
               <li>
                 <Link
                   href={`/${locale}/createLLMassistants`}
-                  className="dropdown-item"
+                  className="dropdown-item fw-semibold"
                 >
                   Створюємо LLM-асистентів
                 </Link>
@@ -47,7 +47,7 @@ export default function Header({ locale = 'ua' }) {
               <li>
                 <Link
                   href={`/${locale}/developAIsolutions`}
-                  className="dropdown-item"
+                  className="dropdown-item fw-semibold"
                 >
                   Розробляємо AI-рішення
                 </Link>
@@ -57,7 +57,7 @@ export default function Header({ locale = 'ua' }) {
           <li className="nav-item">
             <Link
               href={`/${locale}/blog`}
-              className="nav-link text-dark px-3 fs-5"
+              className="nav-link text-dark px-3 fs-5 fw-semibold"
             >
               Блог
             </Link>
@@ -65,7 +65,7 @@ export default function Header({ locale = 'ua' }) {
           <li className="nav-item">
             <Link
               href={`/${locale}/about`}
-              className="nav-link text-dark px-3 fs-5"
+              className="nav-link text-dark px-3 fs-5 fw-semibold"
             >
               Про нас
             </Link>
@@ -73,7 +73,7 @@ export default function Header({ locale = 'ua' }) {
           <li className="nav-item">
             <Link
               href={`/${locale}/contact`}
-              className="nav-link text-dark px-3 fs-5"
+              className="nav-link text-dark px-3 fs-5 fw-semibold"
             >
               Контакти
             </Link>
