@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="px-8 py-6 border-t text-center text-sm opacity-70">
+    <footer className="bg-light text-center text-secondary py-4 mt-5 border-top">
       © {new Date().getFullYear()} MindSpark
     </footer>
   );
