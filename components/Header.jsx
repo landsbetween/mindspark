@@ -20,26 +20,65 @@ export default function Header({ locale = 'ua' }) {
           MindSpark
         </Link>
 
-        <div className="d-flex ms-auto">
-          <Link
-            href={`/${locale}/about`}
-            className="nav-link text-dark px-3 fs-5"
-          >
-            Про нас
-          </Link>
-          <Link
-            href={`/${locale}/contact`}
-            className="nav-link text-dark px-3 fs-5"
-          >
-            Контакти
-          </Link>
-          <Link
-            href={`/${locale}/blog`}
-            className="nav-link text-dark px-3 fs-5"
-          >
-            Блог
-          </Link>
-        </div>
+        <ul className="navbar-nav ms-auto d-flex flex-row align-items-center">
+          <li className="nav-item dropdown">
+            <span
+              className="nav-link dropdown-toggle text-dark px-3 fs-5"
+              id="whatWeDoDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style={{ cursor: 'pointer' }}
+            >
+              Що ми робимо
+            </span>
+            <ul
+              className="dropdown-menu"
+              aria-labelledby="whatWeDoDropdown"
+            >
+              <li>
+                <Link
+                  href={`/${locale}/createLLMassistants`}
+                  className="dropdown-item"
+                >
+                  Створюємо LLM-асистентів
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/developAIsolutions`}
+                  className="dropdown-item"
+                >
+                  Розробляємо AI-рішення
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="nav-item">
+            <Link
+              href={`/${locale}/blog`}
+              className="nav-link text-dark px-3 fs-5"
+            >
+              Блог
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              href={`/${locale}/about`}
+              className="nav-link text-dark px-3 fs-5"
+            >
+              Про нас
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              href={`/${locale}/contact`}
+              className="nav-link text-dark px-3 fs-5"
+            >
+              Контакти
+            </Link>
+          </li>
+        </ul>
       </div>
     </header>
   )
