@@ -8,21 +8,36 @@ export default function Header({ locale = 'ua' }) {
         <Image
           src="/logo.png"
           alt="MindSpark Logo"
-          width={50}
+          width={55}
           height={50}
           className="me-2 rounded"
         />
 
-        <Link href={`/${locale}`} className="navbar-brand text-primary fw-bold">
+        <Link
+          href={`/${locale}`}
+          className="navbar-brand fw-bold text-dark fs-2"
+        >
           MindSpark
         </Link>
 
         <div className="d-flex ms-auto">
-          <Link href={`/${locale}/about`} className="nav-link text-primary px-2">
+          <Link
+            href={`/${locale}/about`}
+            className="nav-link text-dark px-3 fs-5"
+          >
             Про нас
           </Link>
-          <Link href={`/${locale}/contact`} className="nav-link text-primary px-2">
+          <Link
+            href={`/${locale}/contact`}
+            className="nav-link text-dark px-3 fs-5"
+          >
             Контакти
+          </Link>
+          <Link
+            href={`/${locale}/blog`}
+            className="nav-link text-dark px-3 fs-5"
+          >
+            Блог
           </Link>
         </div>
       </div>
