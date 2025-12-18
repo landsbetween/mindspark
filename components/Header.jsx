@@ -6,10 +6,10 @@ export default function Header({ locale = 'ua' }) {
     <header className="navbar navbar-expand-lg navbar-light bg-light shadow-sm px-4">
       <div className="container-fluid d-flex align-items-center">
         <Image
-          src="/logo.jpg"
+          src="/logo.png"
           alt="MindSpark Logo"
-          width={40}
-          height={40}
+          width={50}
+          height={50}
           className="me-2 rounded"
         />
 
