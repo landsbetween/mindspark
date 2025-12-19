@@ -2,8 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-
-import Link from "next/link";
 import LangSwitch from "./LangSwitch";
 
 export default function Header({ locale = "ua" }) {
