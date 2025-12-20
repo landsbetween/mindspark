@@ -6,5 +6,5 @@ export async function generateStaticParams() {
 }
 
 export default function Home({ params }) {
-  return <Hero locale={params.locale} />
+  return <Hero />
 }

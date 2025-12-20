@@ -6,15 +6,10 @@ import { usePathname } from 'next/navigation';
 export default function Hero() {
   const pathname = usePathname();
   const parts = pathname.split('/').filter(Boolean);
-  const locale = parts[0] === 'en' ? 'en' : 'ua';  // те саме, що в LangSwitch
+  const locale = parts[0] === 'en' ? 'en' : 'ua';
 
   return (
     <section className="text-center py-5 bg-white">
-      <pre>
-        locale = {locale}
-        {'\n'}
-        title = {t(locale, 'heroTitle')}
-      </pre>
       <div className="container">
         <h1 className="text-5xl font-bold text-blue-900">
           {t(locale, "heroTitle")}

@@ -13,11 +13,11 @@ export default function LocaleLayout({ children, params }) {
   return (
     <>
       <BootstrapClient />
-      <Header locale={params.locale} />
+      <Header />
       <main className="antialiased">
         {children}
       </main>
-      <Footer locale={params.locale} />
+      <Footer />
     </>
   )
 }
