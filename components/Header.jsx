@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from "next/link";
+import Image from "next/image";
 import LangSwitch from "./LangSwitch";
 
 export default function Header({ locale = "ua" }) {
@@ -31,14 +31,11 @@ export default function Header({ locale = "ua" }) {
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             >
               Що ми робимо
             </span>
-            <ul
-              className="dropdown-menu"
-              aria-labelledby="whatWeDoDropdown"
-            >
+            <ul className="dropdown-menu" aria-labelledby="whatWeDoDropdown">
               <li>
                 <Link
                   href={`/${locale}/createLLMassistants`}
@@ -81,8 +78,10 @@ export default function Header({ locale = "ua" }) {
               Контакти
             </Link>
           </li>
+          <li className="nav-item d-flex align-items-center">
+            <LangSwitch locale={locale} />
+          </li>
         </ul>
-        <LangSwitch locale={locale} />
       </div>
     </header>
   );
