@@ -2,9 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { t } from "@/lib/t";
 import LangSwitch from "./LangSwitch";
 
-export default function Header({ locale = "ua" }) {
+export default function Header() {
+  const pathname = usePathname();
+  const parts = pathname.split("/").filter(Boolean);
+  const locale = parts[0] === "en" ? "en" : "ua";
+
   return (
     <header className="navbar navbar-expand-lg navbar-light bg-light shadow-sm px-4">
       <div className="container-fluid d-flex align-items-center">
@@ -33,7 +39,7 @@ export default function Header({ locale = "ua" }) {
               aria-expanded="false"
               style={{ cursor: "pointer" }}
             >
-              Що ми робимо
+              {t(locale, "what_we_do")}
             </span>
             <ul className="dropdown-menu" aria-labelledby="whatWeDoDropdown">
               <li>
@@ -41,7 +47,7 @@ export default function Header({ locale = "ua" }) {
                   href={`/${locale}/createLLMassistants`}
                   className="dropdown-item fw-semibold"
                 >
-                  Створюємо LLM-асистентів
+                  {t(locale, "what_we_do_create")}
                 </Link>
               </li>
               <li>
@@ -49,7 +55,7 @@ export default function Header({ locale = "ua" }) {
                   href={`/${locale}/developAIsolutions`}
                   className="dropdown-item fw-semibold"
                 >
-                  Розробляємо AI-рішення
+                  {t(locale, "what_we_do_develop")}
                 </Link>
               </li>
             </ul>
@@ -59,7 +65,7 @@ export default function Header({ locale = "ua" }) {
               href={`/${locale}/blog`}
               className="nav-link text-dark px-3 fs-5 fw-semibold"
             >
-              Блог
+              {t(locale, "blog")}
             </Link>
           </li>
           <li className="nav-item">
@@ -67,7 +73,7 @@ export default function Header({ locale = "ua" }) {
               href={`/${locale}/about`}
               className="nav-link text-dark px-3 fs-5 fw-semibold"
             >
-              Про нас
+              {t(locale, "about")}
             </Link>
           </li>
           <li className="nav-item">
@@ -75,11 +81,11 @@ export default function Header({ locale = "ua" }) {
               href={`/${locale}/contact`}
               className="nav-link text-dark px-3 fs-5 fw-semibold"
             >
-              Контакти
+              {t(locale, "contact")}
             </Link>
           </li>
           <li className="nav-item d-flex align-items-center">
-            <LangSwitch locale={locale} />
+            <LangSwitch />
           </li>
         </ul>
       </div>
