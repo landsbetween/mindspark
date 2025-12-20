@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,6 +11,29 @@ export default function Header() {
   const pathname = usePathname();
   const parts = pathname.split("/").filter(Boolean);
   const locale = parts[0] === "en" ? "en" : "ua";
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const el = dropdownRef.current;
+    if (!el) return;
+
+    const updateBehavior = () => {
+      if (window.innerWidth < 1025) {
+        el.setAttribute("data-bs-toggle", "dropdown");
+      } else {
+        el.removeAttribute("data-bs-toggle");
+        el.removeAttribute("aria-expanded");
+      }
+    };
+
+    updateBehavior();
+    window.addEventListener("resize", updateBehavior);
+
+    return () => {
+      window.removeEventListener("resize", updateBehavior);
+    };
+  }, []);
 
   return (
     <header className="navbar navbar-expand-custom navbar-light bg-light shadow-sm ps-2 pe-2">
@@ -44,11 +68,10 @@ export default function Header() {
           <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item dropdown">
               <span
+                ref={dropdownRef}
                 className="nav-link dropdown-toggle text-dark px-3 fs-5 fw-semibold"
                 id="whatWeDoDropdown"
                 role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
                 style={{ cursor: "pointer" }}
               >
                 {t(locale, "what_we_do")}
