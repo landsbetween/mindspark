@@ -42,13 +42,13 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="MindSpark Logo"
-            width={55}
-            height={50}
+            width={50}
+            height={45}
             className="me-2 rounded"
           />
           <Link
             href={`/${locale}`}
-            className="navbar-brand fw-bold text-dark fs-2 mb-0"
+            className="navbar-brand fw-bold text-dark fs-3 mb-0"
           >
             MindSpark
           </Link>
