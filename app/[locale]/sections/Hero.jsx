@@ -1,25 +1,41 @@
 'use client';
 
+import Image from "next/image";
 import { t } from "@/lib/t";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
 export default function Hero() {
   const pathname = usePathname();
-  const parts = pathname.split('/').filter(Boolean);
-  const locale = parts[0] === 'en' ? 'en' : 'ua';
+  const parts = pathname.split("/").filter(Boolean);
+  const locale = parts[0] === "en" ? "en" : "ua";
 
   return (
-    <section className="text-center py-5 bg-white">
+    <section className="hero-section">
       <div className="container">
-        <h1 className="text-5xl font-bold text-blue-900">
-          {t(locale, "heroTitle")}
-        </h1>
-        <p className="lead text-secondary my-4">
-          {t(locale, "heroText")}
-        </p>
-        <button className="btn btn-primary btn-lg">
-          {t(locale, "cta")}
-        </button>
+        <div className="hero-grid">
+          <div className="hero-image">
+            <Image
+              src="/mainIcon.avif"
+              alt="AI laptop illustration"
+              width={900}
+              height={700}
+              priority
+            />
+          </div>
+          <div className="hero-content">
+            <h1 className="hero-title">
+              {t(locale, "heroTitle")}
+            </h1>
+
+            <p className="hero-text">
+              {t(locale, "heroText")}
+            </p>
+
+            <button className="btn btn-primary btn-lg hero-cta">
+              {t(locale, "cta")}
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
