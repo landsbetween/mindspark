@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { t } from "@/lib/t";
@@ -14,14 +14,15 @@ export default function Hero() {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-content">
+            <div className="hero-prefix">
+             {t(locale, "heroPrefix")}
+            </div>
             <h1 className="hero-title text-color">
               {t(locale, "heroTitle")}
             </h1>
-
             <p className="hero-text">
               {t(locale, "heroText")}
             </p>
-
             <button className="btn btn-primary btn-lg hero-cta">
               {t(locale, "cta")}
             </button>

@@ -15,7 +15,7 @@ export default function LangSwitch() {
   const href = restPath ? `/${nextLocale}/${restPath}` : `/${nextLocale}`;
 
   return (
-    <Link href={href} className="lang-badge text-color">
+    <Link href={href} className="lang-badge menu-color">
       {nextLocale.toUpperCase()}
     </Link>
   );
