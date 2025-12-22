@@ -374,5 +374,5 @@ html[lang="en"] .hero-text {
 html[lang="ua"] .text-color,
 html[lang="ua"] .menu-color,
 html[lang="ua"] .hero-prefix {
-  font-family: var(--font-russo) !important;
+  font-family: var(--font-ua) !important;
 }
