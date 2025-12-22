@@ -48,7 +48,7 @@ export default function Header() {
           />
           <Link
             href={`/${locale}`}
-            className="navbar-brand fw-bold fs-3 mb-0 brand-title"
+            className="navbar-brand fw-bold fs-3 mb-0 text-color"
           >
             MindSpark
           </Link>
@@ -69,7 +69,7 @@ export default function Header() {
             <li className="nav-item dropdown">
               <span
                 ref={dropdownRef}
-                className="nav-link dropdown-toggle text-dark px-3 fs-5 fw-semibold"
+                className="nav-link dropdown-toggle text-color px-3 fs-5 fw-semibold"
                 id="whatWeDoDropdown"
                 role="button"
                 style={{ cursor: "pointer" }}
@@ -80,7 +80,7 @@ export default function Header() {
                 <li>
                   <Link
                     href={`/${locale}/createLLMassistants`}
-                    className="dropdown-item fw-semibold"
+                    className="dropdown-item fw-semibold text-color"
                   >
                     {t(locale, "what_we_do_create")}
                   </Link>
@@ -88,7 +88,7 @@ export default function Header() {
                 <li>
                   <Link
                     href={`/${locale}/developAIsolutions`}
-                    className="dropdown-item fw-semibold"
+                    className="dropdown-item fw-semibold text-color"
                   >
                     {t(locale, "what_we_do_develop")}
                   </Link>
@@ -98,7 +98,7 @@ export default function Header() {
             <li className="nav-item">
               <Link
                 href={`/${locale}/blog`}
-                className="nav-link text-dark px-3 fs-5 fw-semibold"
+                className="nav-link text-color px-3 fs-5 fw-semibold"
               >
                 {t(locale, "blog")}
               </Link>
@@ -106,7 +106,7 @@ export default function Header() {
             <li className="nav-item">
               <Link
                 href={`/${locale}/about`}
-                className="nav-link text-dark px-3 fs-5 fw-semibold"
+                className="nav-link text-color px-3 fs-5 fw-semibold"
               >
                 {t(locale, "about")}
               </Link>
@@ -114,7 +114,7 @@ export default function Header() {
             <li className="nav-item">
               <Link
                 href={`/${locale}/contact`}
-                className="nav-link text-dark px-3 fs-5 fw-semibold"
+                className="nav-link text-color px-3 fs-5 fw-semibold"
               >
                 {t(locale, "contact")}
               </Link>

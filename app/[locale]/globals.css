@@ -1,5 +1,5 @@
-.brand-title {
-  color: #32334F !important;
+.text-color {
+  color: #313450 !important;
 }
 
 .lang-badge {
@@ -17,7 +17,7 @@
 }
 
 .lang-badge:hover {
-  background-color: #0d6efd;
+  background-color: #4E6EF1;
   color: #fff;
 }
 
@@ -149,7 +149,6 @@
   font-size: 3.2rem;
   font-weight: 800;
   line-height: 1.15;
-  color: #0b1c3f;
 }
 
 .hero-text {

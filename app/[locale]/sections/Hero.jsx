@@ -23,7 +23,7 @@ export default function Hero() {
             />
           </div>
           <div className="hero-content">
-            <h1 className="hero-title">
+            <h1 className="hero-title text-color">
               {t(locale, "heroTitle")}
             </h1>
 
