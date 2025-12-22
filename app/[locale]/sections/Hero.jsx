@@ -13,15 +13,6 @@ export default function Hero() {
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          <div className="hero-image">
-            <Image
-              src="/mainIcon.avif"
-              alt="AI laptop illustration"
-              width={900}
-              height={700}
-              priority
-            />
-          </div>
           <div className="hero-content">
             <h1 className="hero-title text-color">
               {t(locale, "heroTitle")}
@@ -34,6 +25,15 @@ export default function Hero() {
             <button className="btn btn-primary btn-lg hero-cta">
               {t(locale, "cta")}
             </button>
+          </div>
+          <div className="hero-image">
+            <Image
+              src="/mainIcon.avif"
+              alt="AI laptop illustration"
+              width={900}
+              height={700}
+              priority
+            />
           </div>
         </div>
       </div>
