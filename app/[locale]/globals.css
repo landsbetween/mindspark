@@ -267,8 +267,6 @@
   }
 }
 @media (max-width: 1024px) {
-
-
     .navbar-toggler.ms-burger {
     border: 0;
     box-shadow: none !important;
@@ -324,9 +322,9 @@
 
     will-change: transform, opacity;
     transition:
-      transform 220ms ease,
-      opacity 180ms ease,
-      visibility 0s linear 220ms;
+      transform 140ms ease,
+      opacity 120ms ease,
+      visibility 0s linear 140ms;
   }
 
   .navbar-mindspark .navbar-collapse.show {
@@ -335,8 +333,8 @@
     pointer-events: auto;
     visibility: visible;
     transition:
-      transform 220ms ease,
-      opacity 180ms ease;
+      transform 140ms ease,
+      opacity 120ms ease;
   }
 }
 
