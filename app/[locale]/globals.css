@@ -182,7 +182,12 @@
 .hero-cta {
   padding: 14px 34px;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 180px;
+  background-color: #4E6EF1;
+}
+
+.hero-cta:hover {
+  background-color: #3b56d1;
 }
 
 .hero-image {
