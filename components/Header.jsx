@@ -36,8 +36,8 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="navbar navbar-expand-custom navbar-light bg-light shadow-sm ps-2 pe-2">
-      <div className="container-fluid">
+    <header className="navbar navbar-expand-custom navbar-light bg-light shadow-sm">
+      <div className="container">
         <div className="d-flex align-items-center">
           <Image
             src="/logo.png"
@@ -48,7 +48,7 @@ export default function Header() {
           />
           <Link
             href={`/${locale}`}
-            className="navbar-brand fw-bold text-dark fs-3 mb-0"
+            className="navbar-brand fw-bold fs-3 mb-0 brand-title"
           >
             MindSpark
           </Link>
