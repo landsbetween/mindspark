@@ -5,15 +5,16 @@
 
 .menu-color {
   color: #6B6F92 !important;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
+  font-size: 18px;
 }
 
 .lang-badge {
   border: 1px solid #dee2e6;
   border-radius: 8px;
   padding: 6px 10px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #000000;
@@ -39,7 +40,7 @@
 }
 
 .hero-prefix {
-  font-size: 2rem;
+  font-size: 25px;
   font-weight: 700;
   color: #4E6EF1;
   letter-spacing: 0.04em;
@@ -199,13 +200,13 @@
 }
 
 .hero-title {
-  font-size: 3.2rem;
+  font-size: 37px;
   font-weight: 800;
   line-height: 1.15;
 }
 
 .hero-text {
-  font-size: 1.15rem;
+  font-size: 16px;
   color: #5f6b7a;
   margin: 24px 0 36px;
 }

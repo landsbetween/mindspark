@@ -75,7 +75,7 @@ export default function Header() {
             <li className="nav-item dropdown">
               <span
                 ref={dropdownRef}
-                className="nav-link dropdown-toggle menu-color px-3 fs-5"
+                className="nav-link dropdown-toggle menu-color px-3"
                 id="whatWeDoDropdown"
                 role="button"
                 style={{ cursor: "pointer" }}
@@ -104,7 +104,7 @@ export default function Header() {
             <li className="nav-item">
               <Link
                 href={`/${locale}/blog`}
-                className="nav-link menu-color px-3 fs-5"
+                className="nav-link menu-color px-3"
               >
                 {t(locale, "blog")}
               </Link>
@@ -112,7 +112,7 @@ export default function Header() {
             <li className="nav-item">
               <Link
                 href={`/${locale}/about`}
-                className="nav-link menu-color px-3 fs-5"
+                className="nav-link menu-color px-3"
               >
                 {t(locale, "about")}
               </Link>
@@ -120,7 +120,7 @@ export default function Header() {
             <li className="nav-item">
               <Link
                 href={`/${locale}/contact`}
-                className="nav-link menu-color px-3 fs-5"
+                className="nav-link menu-color px-3"
               >
                 {t(locale, "contact")}
               </Link>
