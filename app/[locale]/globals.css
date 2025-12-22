@@ -97,8 +97,6 @@
     position: absolute;
     top: 100%;
     left: 0;
-    border-radius: 8px;
-    padding: 8px 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     border: none;
   }
@@ -336,6 +334,12 @@
     transition:
       transform 140ms ease,
       opacity 120ms ease;
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    padding-top: 12px;
   }
 }
 
