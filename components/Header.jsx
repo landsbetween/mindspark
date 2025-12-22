@@ -42,8 +42,8 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="MindSpark Logo"
-            width={50}
-            height={45}
+            width={45}
+            height={40}
             className="me-2 rounded"
           />
           <Link
