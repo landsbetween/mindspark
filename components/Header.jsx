@@ -37,6 +37,10 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    document.documentElement.lang = locale === "en" ? "en" : "ua";
+  }, [locale]);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -89,13 +93,15 @@ export default function Header() {
           />
           <Link
             href={`/${locale}`}
-            className="navbar-brand fw-bold fs-3 mb-0 text-color"
+            className="navbar-brand fw-bold fs-3 mb-0 logo-color"
           >
             MindSpark
           </Link>
         </div>
         <button
-          className={`navbar-toggler ms-auto ms-burger ${menuOpen ? "is-open" : ""}`}
+          className={`navbar-toggler ms-auto ms-burger ${
+            menuOpen ? "is-open" : ""
+          }`}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -141,19 +147,28 @@ export default function Header() {
             </li>
 
             <li className="nav-item">
-              <Link href={`/${locale}/blog`} className="nav-link menu-color px-3">
+              <Link
+                href={`/${locale}/blog`}
+                className="nav-link menu-color px-3"
+              >
                 {t(locale, "blog")}
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link href={`/${locale}/about`} className="nav-link menu-color px-3">
+              <Link
+                href={`/${locale}/about`}
+                className="nav-link menu-color px-3"
+              >
                 {t(locale, "about")}
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link href={`/${locale}/contact`} className="nav-link menu-color px-3">
+              <Link
+                href={`/${locale}/contact`}
+                className="nav-link menu-color px-3"
+              >
                 {t(locale, "contact")}
               </Link>
             </li>

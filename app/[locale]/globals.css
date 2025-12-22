@@ -1,11 +1,14 @@
-.text-color {
+.logo-color{
   color: #313450 !important;
   font-family: 'Archivo Black', sans-serif;
 }
 
+.text-color {
+  color: #313450 !important;
+}
+
 .menu-color {
   color: #6B6F92 !important;
-  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 18px;
 }
@@ -45,7 +48,6 @@
   color: #4E6EF1;
   letter-spacing: 0.04em;
   margin-bottom: 12px;
-  font-family: 'Archivo Black', sans-serif;
 }
 
 .navbar-mindspark {
@@ -213,7 +215,6 @@
 
 .hero-cta {
   padding: 14px 34px;
-  font-weight: 600;
   border-radius: 180px;
   background-color: #4E6EF1;
 }
@@ -351,4 +352,23 @@
     word-break: break-word;
     overflow-wrap: anywhere;
     }
+}
+
+html[lang="en"] .text-color,
+html[lang="en"] .hero-prefix {
+  font-family: var(--font-archivo) !important;
+}
+
+html[lang="en"] .menu-color, 
+html[lang="en"] .hero-cta,
+html[lang="ua"] .menu-color,
+html[lang="ua"] .hero-text,
+html[lang="ua"] .hero-cta,
+html[lang="en"] .hero-text {
+  font-family: var(--font-poppins) !important;
+}
+
+html[lang="ua"] .text-color,
+html[lang="ua"] .hero-prefix {
+  font-family: var(--font-russo) !important;
 }

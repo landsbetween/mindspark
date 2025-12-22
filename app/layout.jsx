@@ -1,28 +1,30 @@
-import { Poppins, Archivo_Black } from "next/font/google";
+import { Poppins, Archivo_Black, Russo_One } from "next/font/google";
 
 const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  subsets: ["latin", 'cyrillic'],
+  weight: ["400"],
   display: "swap",
+  variable: "--font-poppins",
 });
 
 const archivoBlack = Archivo_Black({
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
+  variable: "--font-archivo",
 });
 
-export const metadata = {
-  title: "MindSpark",
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+const russoOne = Russo_One({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-russo",
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="uk">
-      <body className={`${poppins.className} ${archivoBlack.variable}`}>
+    <html lang="ua">
+      <body className={`${poppins.variable} ${archivoBlack.variable} ${russoOne.variable}`}>
         {children}
       </body>
     </html>
