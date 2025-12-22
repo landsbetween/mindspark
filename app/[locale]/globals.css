@@ -24,8 +24,9 @@
 }
 
 .lang-badge:hover {
-  background-color: #4E6EF1;
-  color: #fff;
+  background-color: transparent;
+  border-color: #4E6EF1;
+  color: #4E6EF1;
 }
 
 .navbar .dropdown-toggle::after {
