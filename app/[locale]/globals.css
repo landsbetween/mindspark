@@ -9,8 +9,8 @@
 
 .menu-color {
   color: #6B6F92 !important;
-  font-weight: 400;
   font-size: 18px;
+  margin-right: 10px;
 }
 
 .lang-badge {
@@ -361,7 +361,6 @@ html[lang="en"] .hero-prefix {
 
 html[lang="en"] .menu-color, 
 html[lang="en"] .hero-cta,
-html[lang="ua"] .menu-color,
 html[lang="ua"] .hero-text,
 html[lang="ua"] .hero-cta,
 html[lang="en"] .hero-text {
@@ -369,6 +368,7 @@ html[lang="en"] .hero-text {
 }
 
 html[lang="ua"] .text-color,
+html[lang="ua"] .menu-color,
 html[lang="ua"] .hero-prefix {
   font-family: var(--font-russo) !important;
 }
