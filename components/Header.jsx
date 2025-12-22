@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,6 +13,7 @@ export default function Header() {
   const locale = parts[0] === "en" ? "en" : "ua";
 
   const dropdownRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const el = dropdownRef.current;
@@ -30,13 +31,18 @@ export default function Header() {
     updateBehavior();
     window.addEventListener("resize", updateBehavior);
 
-    return () => {
-      window.removeEventListener("resize", updateBehavior);
-    };
+    return () => window.removeEventListener("resize", updateBehavior);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header className="navbar navbar-expand-custom navbar-light bg-light shadow-sm">
+    <header className={`navbar navbar-expand-custom navbar-light navbar-mindspark ${scrolled ? "is-sticky" : ""}`}>
       <div className="container">
         <div className="d-flex align-items-center">
           <Image

@@ -47,6 +47,21 @@
   font-family: 'Archivo Black', sans-serif;
 }
 
+.navbar-mindspark {
+  background: transparent !important;
+  position: relative;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navbar-mindspark.is-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
 @media (max-width: 576px) {
   .hero-prefix {
     font-size: 1.3rem;
