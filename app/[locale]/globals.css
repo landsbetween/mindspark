@@ -6,7 +6,7 @@
 .menu-color {
   color: #6B6F92 !important;
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
 }
 
@@ -15,7 +15,7 @@
   border-radius: 8px;
   padding: 6px 10px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.05em;
   color: #000000;
   text-decoration: none;
