@@ -43,6 +43,13 @@ export default function ConsultationModal({
       return nextErrors;
     }
 
+    if (emailV) {
+      const emailOk = emailV.includes("@");
+      if (!emailOk) {
+        nextErrors.email = t(locale, "error_email_at");
+      }
+    }
+
     if (phoneV) {
       const phoneStartOk =
         phoneV.startsWith("+38") || phoneV.startsWith("38") || phoneV.startsWith("0");
@@ -150,11 +157,15 @@ export default function ConsultationModal({
                   <input
                     id="msEmail"
                     name="email"
-                    type="email"
-                    className="form-control"
+                    type="text"
+                    className={`form-control ${errors.email ? "is-invalid" : ""}`}
                     placeholder="you@example.com"
                     autoComplete="off"
+                    inputMode="email"
                   />
+                  {errors.email ? (
+                    <div className="invalid-feedback">{errors.email}</div>
+                  ) : null}
                 </div>
 
                 <div className="form-group">
