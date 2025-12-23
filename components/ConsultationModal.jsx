@@ -3,7 +3,12 @@
 import { t } from "@/lib/t";
 import { useEffect } from "react";
 
-export default function ConsultationModal({ open, onClose, title = "Отримати консультацію", locale = "ua" }) {
+export default function ConsultationModal({
+  open,
+  onClose,
+  title = "Отримати консультацію",
+  locale = "ua",
+}) {
   useEffect(() => {
     if (open) document.body.classList.add("modal-open");
     else document.body.classList.remove("modal-open");
@@ -16,10 +21,7 @@ export default function ConsultationModal({ open, onClose, title = "Отрима
 
   return (
     <>
-      <div
-        className="modal-backdrop fade show"
-        onClick={onClose}
-      />
+      <div className="modal-backdrop fade show" onClick={onClose} />
       <div
         className="modal fade show"
         role="dialog"
@@ -31,7 +33,12 @@ export default function ConsultationModal({ open, onClose, title = "Отрима
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">{title}</h5>
-              <button type="button" className="close" aria-label="Close" onClick={onClose}>
+              <button
+                type="button"
+                className="close"
+                aria-label="Close"
+                onClick={onClose}
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -49,7 +56,7 @@ export default function ConsultationModal({ open, onClose, title = "Отрима
                     type="email"
                     className="form-control"
                     placeholder="you@example.com"
-                    autoComplete="email"
+                    autoComplete="off"
                   />
                 </div>
 
@@ -60,7 +67,7 @@ export default function ConsultationModal({ open, onClose, title = "Отрима
                     type="tel"
                     className="form-control"
                     placeholder="+ 380 000 000 000"
-                    autoComplete="tel"
+                    autoComplete="off"
                   />
                 </div>
 
@@ -71,6 +78,7 @@ export default function ConsultationModal({ open, onClose, title = "Отрима
                     type="text"
                     className="form-control"
                     placeholder={t(locale, "example_of_telegrams")}
+                    autoComplete="off"
                   />
                 </div>
 
@@ -85,8 +93,11 @@ export default function ConsultationModal({ open, onClose, title = "Отрима
                 </div>
               </div>
 
-              <div className="modal-footer">
-                <button type="submit" className="btn btn-primary">
+              <div className="modal-footer justify-content-center">
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-lg modal-submit-btn"
+                >
                   {t(locale, "send_request")}
                 </button>
               </div>

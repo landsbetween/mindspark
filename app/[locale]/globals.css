@@ -490,3 +490,37 @@ body.modal-open {
   display: block;
   transform: translateY(-1px);
 }
+
+.modal-footer {
+  border-top: none;
+}
+
+.modal-submit-btn {
+  min-width: 240px;
+}
+
+@media (max-width: 576px) {
+  .modal-submit-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+.modal-footer {
+  padding-top: 0.1rem;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 576px) {
+  .modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-dialog {
+    margin: 0;
+    width: 100%;
+    max-width: 92%;
+  }
+}
