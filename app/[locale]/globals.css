@@ -497,7 +497,14 @@ body.modal-open {
 
 .modal-submit-btn {
   min-width: 240px;
+  border-radius: 180px;
 }
+
+.modal-content {
+    min-height: 20vh;
+    border-radius: 14px;
+    overflow: hidden;
+  }
 
 @media (max-width: 576px) {
   .modal-submit-btn {

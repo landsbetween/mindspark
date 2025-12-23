@@ -91,7 +91,7 @@ export default function ConsultationModal({
                     name="phone"
                     type="tel"
                     className="form-control"
-                    placeholder="+ 380 000 000 000"
+                    placeholder="+380 000 000 000"
                     autoComplete="off"
                   />
                 </div>
