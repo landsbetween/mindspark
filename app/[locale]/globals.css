@@ -1,6 +1,8 @@
 .logo-color {
   color: #313450 !important;
   font-family: "Archivo Black", sans-serif;
+  font-size: 34px !important;
+  letter-spacing: 0.06em;
 }
 
 .text-color {
