@@ -97,6 +97,16 @@ body {
 }
 
 @media (min-width: 1025px) {
+  .navbar-mindspark {
+    margin-top: 20px;
+  }
+
+  .navbar-mindspark.is-sticky {
+    top: 20px;
+  }
+}
+
+@media (min-width: 1025px) {
   :root {
     --nav-accent-color: #4e6ef1;
   }
