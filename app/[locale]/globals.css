@@ -502,7 +502,7 @@ body.modal-open {
 
 .modal-content {
     min-height: 20vh;
-    border-radius: 14px;
+    border-radius: 25px;
     overflow: hidden;
   }
 
