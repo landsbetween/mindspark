@@ -1,8 +1,15 @@
 "use client";
 
 import { t } from "@/lib/t";
+import { useEffect } from "react";
 
 export default function ConsultationModal({ open, onClose, title = "Отримати консультацію", locale = "ua" }) {
+  useEffect(() => {
+    if (open) document.body.classList.add("modal-open");
+    else document.body.classList.remove("modal-open");
+    return () => document.body.classList.remove("modal-open");
+  }, [open]);
+
   if (!open) return null;
 
   const stop = (e) => e.stopPropagation();
@@ -73,14 +80,14 @@ export default function ConsultationModal({ open, onClose, title = "Отрима
                     id="msMsg"
                     className="form-control"
                     rows="4"
-                    placeholder={t(locale, "send_request")}
+                    placeholder={t(locale, "briefly_describe_request")}
                   />
                 </div>
               </div>
 
               <div className="modal-footer">
                 <button type="submit" className="btn btn-primary">
-                  Надіслати
+                  {t(locale, "send_request")}
                 </button>
               </div>
             </form>
