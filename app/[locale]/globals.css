@@ -431,3 +431,11 @@ html[lang="ua"] .hero-prefix {
     }
   }
 }
+
+.modal {
+  display: block;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
