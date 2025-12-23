@@ -44,8 +44,31 @@ export default function ConsultationModal({
             </div>
 
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
+
+                const form = e.currentTarget;
+                const fd = new FormData(form);
+
+                const payload = {
+                  email: fd.get("email"),
+                  phone: fd.get("phone"),
+                  telegram: fd.get("telegram"),
+                  message: fd.get("message"),
+                };
+
+                try {
+                  await fetch("/api/consultation", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                  });
+
+                  form.reset();
+                  onClose();
+                } catch (err) {
+                  console.error("Form submit error:", err);
+                }
               }}
             >
               <div className="modal-body">
@@ -53,6 +76,7 @@ export default function ConsultationModal({
                   <label htmlFor="msEmail">Email</label>
                   <input
                     id="msEmail"
+                    name="email"
                     type="email"
                     className="form-control"
                     placeholder="you@example.com"
@@ -64,6 +88,7 @@ export default function ConsultationModal({
                   <label htmlFor="msPhone">{t(locale, "phone")}</label>
                   <input
                     id="msPhone"
+                    name="phone"
                     type="tel"
                     className="form-control"
                     placeholder="+ 380 000 000 000"
@@ -75,6 +100,7 @@ export default function ConsultationModal({
                   <label htmlFor="msTg">Telegram</label>
                   <input
                     id="msTg"
+                    name="telegram"
                     type="text"
                     className="form-control"
                     placeholder={t(locale, "example_of_telegrams")}
@@ -86,6 +112,7 @@ export default function ConsultationModal({
                   <label htmlFor="msMsg">{t(locale, "message")}</label>
                   <textarea
                     id="msMsg"
+                    name="message"
                     className="form-control"
                     rows="4"
                     placeholder={t(locale, "briefly_describe_request")}
