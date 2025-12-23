@@ -391,3 +391,27 @@ html[lang="ua"] .menu-color,
 html[lang="ua"] .hero-prefix {
   font-family: var(--font-ua) !important;
 }
+
+@media (max-width: 1024px) {
+  .navbar-mindspark .navbar-collapse {
+    left: 12px;
+    right: 12px;
+    width: auto;
+
+    border-radius: 12px;
+  }
+
+  @media (min-width: 576px) {
+    .navbar-mindspark .navbar-collapse {
+      left: 16px;
+      right: 16px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .navbar-mindspark .navbar-collapse {
+      left: 24px;
+      right: 24px;
+    }
+  }
+}
