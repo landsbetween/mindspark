@@ -419,8 +419,6 @@ html[lang="ua"] .hero-prefix {
     left: 12px;
     right: 12px;
     width: auto;
-
-    border-radius: 12px;
   }
 
   @media (min-width: 576px) {
