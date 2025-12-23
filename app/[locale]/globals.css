@@ -524,3 +524,42 @@ body.modal-open {
     max-width: 92%;
   }
 }
+
+@media (min-width: 576px) and (max-width: 1024px) {
+  .modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-dialog {
+    margin: 0;
+    width: 100%;
+    max-width: 70%;
+  }
+
+  .modal-content {
+    min-height: 20vh;
+  }
+
+  .modal-body {
+    overflow-y: auto;
+    max-height: calc(70vh - 140px);
+  }
+}
+
+.btn-primary {
+  background-color: #4e6ef1;
+  border-color: #4e6ef1;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #3b56d1;
+  border-color: #3b56d1;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(78, 110, 241, 0.35);
+}
