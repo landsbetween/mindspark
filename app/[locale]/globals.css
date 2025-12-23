@@ -1,14 +1,33 @@
-.logo-color{
+.logo-color {
   color: #313450 !important;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
 }
 
 .text-color {
   color: #313450 !important;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-fill {
+  flex: 1;
+}
+
 .menu-color {
-  color: #6B6F92 !important;
+  color: #6b6f92 !important;
   font-size: 18px;
   margin-right: 10px;
 }
@@ -29,8 +48,8 @@
 
 .lang-badge:hover {
   background-color: transparent;
-  border-color: #4E6EF1;
-  color: #4E6EF1;
+  border-color: #4e6ef1;
+  color: #4e6ef1;
 }
 
 .navbar .dropdown-toggle::after {
@@ -45,7 +64,7 @@
 .hero-prefix {
   font-size: 30px;
   font-weight: 700;
-  color: #4E6EF1;
+  color: #4e6ef1;
   letter-spacing: 0.04em;
   margin-bottom: 12px;
 }
@@ -73,7 +92,7 @@
 
 @media (min-width: 1025px) {
   :root {
-    --nav-accent-color: #4E6EF1;
+    --nav-accent-color: #4e6ef1;
   }
 
   .navbar-expand-custom .navbar-collapse {
@@ -138,7 +157,7 @@
     background-color: rgba(13, 110, 253, 0.08);
     padding-left: 1.25rem;
   }
-  
+
   .navbar .nav-link:hover,
   .navbar .dropdown:hover > .dropdown-toggle {
     color: var(--nav-accent-color) !important;
@@ -174,7 +193,7 @@
   .dropdown-toggle.show::after {
     transform: rotate(-90deg);
   }
-   .hero-content {
+  .hero-content {
     order: 2;
   }
   .hero-image {
@@ -183,7 +202,7 @@
 }
 
 .hero-section {
-  padding: 40px 0;
+  padding: 160px 0 140px;
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -214,7 +233,7 @@
 .hero-cta {
   padding: 14px 34px;
   border-radius: 180px;
-  background-color: #4E6EF1;
+  background-color: #4e6ef1;
 }
 
 .hero-cta:hover {
@@ -266,35 +285,35 @@
   }
 }
 @media (max-width: 1024px) {
-    .navbar-toggler.ms-burger {
+  .navbar-toggler.ms-burger {
     border: 0;
     box-shadow: none !important;
     padding: 10px 12px;
     display: inline-flex;
     flex-direction: column;
     gap: 6px;
-    }
+  }
 
-    .navbar-toggler.ms-burger .ms-burger-line {
+  .navbar-toggler.ms-burger .ms-burger-line {
     width: 26px;
     height: 2px;
     background: #313450;
     border-radius: 999px;
     transition: transform 0.25s ease, opacity 0.2s ease;
     transform-origin: center;
-    }
+  }
 
-    .navbar-toggler.ms-burger.is-open .ms-burger-line:nth-child(1) {
+  .navbar-toggler.ms-burger.is-open .ms-burger-line:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
-    }
+  }
 
-    .navbar-toggler.ms-burger.is-open .ms-burger-line:nth-child(2) {
+  .navbar-toggler.ms-burger.is-open .ms-burger-line:nth-child(2) {
     opacity: 0;
-    }
+  }
 
-    .navbar-toggler.ms-burger.is-open .ms-burger-line:nth-child(3) {
+  .navbar-toggler.ms-burger.is-open .ms-burger-line:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -320,9 +339,7 @@
     visibility: hidden;
 
     will-change: transform, opacity;
-    transition:
-      transform 140ms ease,
-      opacity 120ms ease,
+    transition: transform 140ms ease, opacity 120ms ease,
       visibility 0s linear 140ms;
   }
 
@@ -331,9 +348,7 @@
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
-    transition:
-      transform 140ms ease,
-      opacity 120ms ease;
+    transition: transform 140ms ease, opacity 120ms ease;
   }
 }
 
@@ -344,18 +359,18 @@
 }
 
 @media (max-width: 1024px) {
-    .navbar-expand-custom .navbar-nav,
-    .navbar-expand-custom .navbar-nav * {
+  .navbar-expand-custom .navbar-nav,
+  .navbar-expand-custom .navbar-nav * {
     max-width: 100%;
     box-sizing: border-box;
-    }
+  }
 
-    .navbar-expand-custom .nav-link,
-    .navbar-expand-custom .dropdown-item {
+  .navbar-expand-custom .nav-link,
+  .navbar-expand-custom .dropdown-item {
     white-space: normal;
     word-break: break-word;
     overflow-wrap: anywhere;
-    }
+  }
 }
 
 html[lang="en"] .text-color,
@@ -363,7 +378,7 @@ html[lang="en"] .hero-prefix {
   font-family: var(--font-archivo) !important;
 }
 
-html[lang="en"] .menu-color, 
+html[lang="en"] .menu-color,
 html[lang="en"] .hero-cta,
 html[lang="ua"] .hero-text,
 html[lang="ua"] .hero-cta,
