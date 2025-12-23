@@ -542,11 +542,11 @@ body.modal-open {
   .modal-dialog {
     margin: 0;
     width: 100%;
-    max-width: 70%;
+    max-width: 80%;
   }
 
   .modal-content {
-    min-height: 20vh;
+    min-height: 30vh;
   }
 
   .modal-body {
@@ -598,4 +598,12 @@ body.modal-open {
   .modal .modal-content { font-size: 16px; }
   .modal .modal-title { font-size: 18px; }
   .modal .form-control { font-size: 16px; }
+}
+
+.modal .modal-body .form-group {
+  margin-bottom: 18px;
+}
+
+.modal .modal-body .form-group:last-child {
+  margin-bottom: 0;
 }
