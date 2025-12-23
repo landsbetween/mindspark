@@ -43,7 +43,7 @@ export default function Hero() {
       <ConsultationModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        title="Отримати консультацію"
+        title={t(locale, "cta")}
         locale={locale}
       />
     </section>
