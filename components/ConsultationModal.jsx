@@ -17,11 +17,13 @@ export default function ConsultationModal({
 
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (!open) {
       setErrors({});
       setSubmitting(false);
+      setSuccess(false);
     }
   }, [open]);
 
@@ -45,27 +47,21 @@ export default function ConsultationModal({
 
     if (emailV) {
       const emailOk = emailV.includes("@");
-      if (!emailOk) {
-        nextErrors.email = t(locale, "error_email_at");
-      }
+      if (!emailOk) nextErrors.email = t(locale, "error_email_at");
     }
 
     if (phoneV) {
       const phoneStartOk =
-        phoneV.startsWith("+38") || phoneV.startsWith("38") || phoneV.startsWith("0");
+        phoneV.startsWith("+38") ||
+        phoneV.startsWith("38") ||
+        phoneV.startsWith("0");
 
-      if (!phoneStartOk) {
-        nextErrors.phone = t(locale, "error_number");
-      }
+      if (!phoneStartOk) nextErrors.phone = t(locale, "error_number");
     }
 
     if (tgV) {
-      const tgOk =
-        tgV.startsWith("@") || tgV.startsWith("https://t.me/");
-
-      if (!tgOk) {
-        nextErrors.telegram = t(locale, "error_telegram");
-      }
+      const tgOk = tgV.startsWith("@") || tgV.startsWith("https://t.me/");
+      if (!tgOk) nextErrors.telegram = t(locale, "error_telegram");
     }
 
     return nextErrors;
@@ -90,6 +86,7 @@ export default function ConsultationModal({
                 className="close"
                 aria-label="Close"
                 onClick={onClose}
+                disabled={submitting}
               >
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -112,11 +109,13 @@ export default function ConsultationModal({
 
                 const nextErrors = validate(payload);
                 if (Object.keys(nextErrors).length > 0) {
+                  setSuccess(false);
                   setErrors(nextErrors);
                   return;
                 }
 
                 setErrors({});
+                setSuccess(false);
                 setSubmitting(true);
 
                 try {
@@ -127,21 +126,23 @@ export default function ConsultationModal({
                   });
 
                   if (!res.ok) {
-                    setErrors({
-                      common: t(locale, "failed_send_request"),
-                    });
+                    setErrors({ common: t(locale, "failed_send_request") });
                     setSubmitting(false);
+                    setSuccess(false);
                     return;
                   }
 
                   form.reset();
-                  onClose();
+                  setSubmitting(false);
+                  setSuccess(true);
+                  setTimeout(() => setSuccess(false), 2500);
                 } catch (err) {
                   console.error("Form submit error:", err);
                   setErrors({
-                    common: "Помилка мережі. Перевір інтернет і спробуй ще раз.",
+                    common: t(locale, "network_error"),
                   });
                   setSubmitting(false);
+                  setSuccess(false);
                 }
               }}
             >
@@ -149,6 +150,12 @@ export default function ConsultationModal({
                 {errors.common ? (
                   <div className="alert alert-danger" role="alert">
                     {errors.common}
+                  </div>
+                ) : null}
+
+                {success ? (
+                  <div className="alert alert-success" role="alert">
+                    Запит успішно надіслано
                   </div>
                 ) : null}
 
@@ -162,6 +169,7 @@ export default function ConsultationModal({
                     placeholder="you@example.com"
                     autoComplete="off"
                     inputMode="email"
+                    disabled={submitting}
                   />
                   {errors.email ? (
                     <div className="invalid-feedback">{errors.email}</div>
@@ -177,6 +185,7 @@ export default function ConsultationModal({
                     className={`form-control ${errors.phone ? "is-invalid" : ""}`}
                     placeholder="+380 000 000 000"
                     autoComplete="off"
+                    disabled={submitting}
                   />
                   {errors.phone ? (
                     <div className="invalid-feedback">{errors.phone}</div>
@@ -192,6 +201,7 @@ export default function ConsultationModal({
                     className={`form-control ${errors.telegram ? "is-invalid" : ""}`}
                     placeholder={t(locale, "example_of_telegrams")}
                     autoComplete="off"
+                    disabled={submitting}
                   />
                   {errors.telegram ? (
                     <div className="invalid-feedback">{errors.telegram}</div>
@@ -206,6 +216,7 @@ export default function ConsultationModal({
                     className="form-control"
                     rows="4"
                     placeholder={t(locale, "briefly_describe_request")}
+                    disabled={submitting}
                   />
                 </div>
               </div>
