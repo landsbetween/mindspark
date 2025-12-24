@@ -1,7 +1,7 @@
 "use client";
 
 import { t } from "@/lib/t";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ConsultationModal({
   open,
@@ -15,17 +15,55 @@ export default function ConsultationModal({
     return () => document.body.classList.remove("modal-open");
   }, [open]);
 
+  const storageKey = useMemo(
+    () => `mindspark_consultation_draft_${locale}`,
+    [locale]
+  );
+
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    phone: "",
+    telegram: "",
+    message: "",
+  });
 
   useEffect(() => {
     if (!open) {
       setErrors({});
       setSubmitting(false);
       setSuccess(false);
+      return;
     }
-  }, [open]);
+
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        setFormData({
+          email: String(parsed?.email ?? ""),
+          phone: String(parsed?.phone ?? ""),
+          telegram: String(parsed?.telegram ?? ""),
+          message: String(parsed?.message ?? ""),
+        });
+      } else {
+        setFormData({ email: "", phone: "", telegram: "", message: "" });
+      }
+    } catch {
+      setFormData({ email: "", phone: "", telegram: "", message: "" });
+    }
+  }, [open, storageKey]);
+
+  useEffect(() => {
+    if (!open) return;
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(formData));
+    } catch {
+    }
+  }, [formData, open, storageKey]);
 
   if (!open) return null;
 
@@ -67,6 +105,28 @@ export default function ConsultationModal({
     return nextErrors;
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (success) setSuccess(false);
+
+    setErrors((prev) => {
+      if (!prev[name] && !prev.common) return prev;
+      const next = { ...prev };
+      delete next[name];
+      delete next.common;
+      return next;
+    });
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const clearDraft = () => {
+    try {
+      localStorage.removeItem(storageKey);
+    } catch {}
+  };
+
   return (
     <>
       <div className="modal-backdrop fade show" onClick={onClose} />
@@ -97,14 +157,11 @@ export default function ConsultationModal({
                 e.preventDefault();
                 if (submitting) return;
 
-                const form = e.currentTarget;
-                const fd = new FormData(form);
-
                 const payload = {
-                  email: fd.get("email"),
-                  phone: fd.get("phone"),
-                  telegram: fd.get("telegram"),
-                  message: fd.get("message"),
+                  email: formData.email,
+                  phone: formData.phone,
+                  telegram: formData.telegram,
+                  message: formData.message,
                 };
 
                 const nextErrors = validate(payload);
@@ -132,15 +189,16 @@ export default function ConsultationModal({
                     return;
                   }
 
-                  form.reset();
+                  // ✅ УСПІХ: очищуємо форму + очищуємо localStorage
+                  setFormData({ email: "", phone: "", telegram: "", message: "" });
+                  clearDraft();
+
                   setSubmitting(false);
                   setSuccess(true);
                   setTimeout(() => setSuccess(false), 2500);
                 } catch (err) {
                   console.error("Form submit error:", err);
-                  setErrors({
-                    common: t(locale, "network_error"),
-                  });
+                  setErrors({ common: t(locale, "network_error") });
                   setSubmitting(false);
                   setSuccess(false);
                 }
@@ -165,6 +223,8 @@ export default function ConsultationModal({
                     id="msEmail"
                     name="email"
                     type="text"
+                    value={formData.email}
+                    onChange={handleChange}
                     className={`form-control ${errors.email ? "is-invalid" : ""}`}
                     placeholder="you@example.com"
                     autoComplete="off"
@@ -182,6 +242,8 @@ export default function ConsultationModal({
                     id="msPhone"
                     name="phone"
                     type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className={`form-control ${errors.phone ? "is-invalid" : ""}`}
                     placeholder="+380 000 000 000"
                     autoComplete="off"
@@ -198,6 +260,8 @@ export default function ConsultationModal({
                     id="msTg"
                     name="telegram"
                     type="text"
+                    value={formData.telegram}
+                    onChange={handleChange}
                     className={`form-control ${errors.telegram ? "is-invalid" : ""}`}
                     placeholder={t(locale, "example_of_telegrams")}
                     autoComplete="off"
@@ -213,6 +277,8 @@ export default function ConsultationModal({
                   <textarea
                     id="msMsg"
                     name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="form-control"
                     rows="4"
                     placeholder={t(locale, "briefly_describe_request")}
