@@ -656,3 +656,49 @@ body.modal-open {
 .develop-icon {
   font-size: 20px;
 }
+
+.develop-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+.develop-icon {
+  font-size: 20px;
+}
+
+/* SPORT & entertainment — зелений (енергія/екшн) */
+.develop-sport { background: rgba(34, 197, 94, 0.12); }
+.develop-sport .develop-icon { color: #22c55e; }
+
+/* ESPORTS — фіолетовий/неон (гейм вайб) */
+.develop-esports { background: rgba(168, 85, 247, 0.12); }
+.develop-esports .develop-icon { color: #a855f7; }
+
+/* AUTO — помаранчевий (швидкість/дорога) */
+.develop-auto { background: rgba(249, 115, 22, 0.12); }
+.develop-auto .develop-icon { color: #f97316; }
+
+/* FMCG — бірюза (свіжість/споживчі товари) */
+.develop-fmcg { background: rgba(20, 184, 166, 0.12); }
+.develop-fmcg .develop-icon { color: #14b8a6; }
+
+/* REAL ESTATE — коричневий/земля (дім/стабільність) */
+.develop-realestate { background: rgba(120, 53, 15, 0.12); }
+.develop-realestate .develop-icon { color: #78350f; }
+
+/* INDUSTRY & retail — жовтий/амбер (виробництво/контроль) */
+.develop-industry { background: rgba(245, 158, 11, 0.14); }
+.develop-industry .develop-icon { color: #f59e0b; }
+
+/* EDUCATION — синій (довіра/знання) */
+.develop-education { background: rgba(59, 130, 246, 0.12); }
+.develop-education .develop-icon { color: #3b82f6; }
+
+/* TECH & infra — сірий/графіт (залізо/інфраструктура) */
+.develop-infra { background: rgba(71, 85, 105, 0.12); }
+.develop-infra .develop-icon { color: #475569; }
+
+/* MEDIA & marketing — рожевий (креатив/контент) */
+.develop-media { background: rgba(236, 72, 153, 0.12); }
+.develop-media .develop-icon { color: #ec4899; }
