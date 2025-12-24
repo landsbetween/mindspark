@@ -9,12 +9,6 @@ export default function ConsultationModal({
   title = "Отримати консультацію",
   locale = "ua",
 }) {
-  useEffect(() => {
-    if (open) document.body.classList.add("modal-open");
-    else document.body.classList.remove("modal-open");
-    return () => document.body.classList.remove("modal-open");
-  }, [open]);
-
   const storageKey = useMemo(
     () => `mindspark_consultation_draft_${locale}`,
     [locale]
@@ -23,6 +17,32 @@ export default function ConsultationModal({
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setMounted(true);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setVisible(true);
+        });
+      });
+
+      document.body.classList.add("modal-open");
+    } else {
+      setVisible(false);
+
+      const t = setTimeout(() => {
+        setMounted(false);
+      }, 300);
+
+      document.body.classList.remove("modal-open");
+
+      return () => clearTimeout(t);
+    }
+  }, [open]);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -61,11 +81,8 @@ export default function ConsultationModal({
     if (!open) return;
     try {
       localStorage.setItem(storageKey, JSON.stringify(formData));
-    } catch {
-    }
+    } catch {}
   }, [formData, open, storageKey]);
-
-  if (!open) return null;
 
   const stop = (e) => e.stopPropagation();
 
@@ -127,11 +144,13 @@ export default function ConsultationModal({
     } catch {}
   };
 
+  if (!mounted) return null;
+
   return (
     <>
       <div className="modal-backdrop fade show" onClick={onClose} />
       <div
-        className="modal fade show"
+        className={`modal fade ${visible ? "show" : ""}`}
         role="dialog"
         aria-modal="true"
         style={{ display: "block" }}
@@ -189,7 +208,12 @@ export default function ConsultationModal({
                     return;
                   }
 
-                  setFormData({ email: "", phone: "", telegram: "", message: "" });
+                  setFormData({
+                    email: "",
+                    phone: "",
+                    telegram: "",
+                    message: "",
+                  });
                   clearDraft();
 
                   setSubmitting(false);
@@ -224,7 +248,9 @@ export default function ConsultationModal({
                     type="text"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                    className={`form-control ${
+                      errors.email ? "is-invalid" : ""
+                    }`}
                     placeholder="you@example.com"
                     autoComplete="off"
                     inputMode="email"
@@ -243,7 +269,9 @@ export default function ConsultationModal({
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`form-control ${errors.phone ? "is-invalid" : ""}`}
+                    className={`form-control ${
+                      errors.phone ? "is-invalid" : ""
+                    }`}
                     placeholder="+380 000 000 000"
                     autoComplete="off"
                     disabled={submitting}
@@ -261,7 +289,9 @@ export default function ConsultationModal({
                     type="text"
                     value={formData.telegram}
                     onChange={handleChange}
-                    className={`form-control ${errors.telegram ? "is-invalid" : ""}`}
+                    className={`form-control ${
+                      errors.telegram ? "is-invalid" : ""
+                    }`}
                     placeholder={t(locale, "example_of_telegrams")}
                     autoComplete="off"
                     disabled={submitting}

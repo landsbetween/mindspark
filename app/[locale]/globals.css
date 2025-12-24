@@ -607,3 +607,21 @@ body.modal-open {
 .modal .modal-body .form-group:last-child {
   margin-bottom: 0;
 }
+
+.modal.fade .modal-dialog {
+  transform: translateY(-40px);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);
+}
+
+.modal-backdrop {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
+}
