@@ -189,7 +189,6 @@ export default function ConsultationModal({
                     return;
                   }
 
-                  // ✅ УСПІХ: очищуємо форму + очищуємо localStorage
                   setFormData({ email: "", phone: "", telegram: "", message: "" });
                   clearDraft();
 
