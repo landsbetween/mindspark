@@ -213,7 +213,7 @@ export default function ConsultationModal({
 
                 {success ? (
                   <div className="alert alert-success" role="alert">
-                    Запит успішно надіслано
+                    {t(locale, "request_tg_send")}
                   </div>
                 ) : null}
 
