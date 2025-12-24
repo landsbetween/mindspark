@@ -49,12 +49,10 @@ export default function DevelopAIsolutions() {
   const imageSrc = "/AIagentImage.avif";
 
   return (
-    <section className="container py-5" style={{ paddingTop: 150, paddingBottom: 150 }}>
+    <section className="container py-5 develop-section">
       <div className="row justify-content-center">
         <div className="col-12">
-          <h2 className="text-center fw-bold" style={{ fontSize: 30, marginBottom: 105 }}>
-            {t(locale, "develop")}
-          </h2>
+          <h2 className="text-center develop-title">{t(locale, "develop")}</h2>
         </div>
       </div>
 
@@ -63,26 +61,23 @@ export default function DevelopAIsolutions() {
           <img
             src={imageSrc}
             alt="Agentic AI workflow illustration"
-            className="img-fluid rounded-4"
-            style={{ maxWidth: 560 }}
+            className="img-fluid rounded-4 develop-image"
             loading="lazy"
           />
         </div>
 
         <div className="col-12 col-lg-6 order-2 order-lg-1">
-          <ul className="list-unstyled m-0">
+          <ul className="list-unstyled m-0 develop-list">
             {items.map((it, idx) => (
-              <li key={idx} className="d-flex align-items-start gap-3 py-2">
-                <div
-                  className="d-inline-flex align-items-center justify-content-center rounded-3 flex-shrink-0"
-                  style={{ width: 42, height: 42, background: "rgba(13,110,253,0.10)" }}
-                >
-                  <i className={`bi ${it.icon} text-primary`} style={{ fontSize: 20 }} />
+              <li
+                key={idx}
+                className="d-flex align-items-start gap-3 py-2 develop-item"
+              >
+                <div className="develop-icon-wrap d-inline-flex align-items-center justify-content-center rounded-3 flex-shrink-0">
+                  <i className={`bi ${it.icon} text-primary develop-icon`} />
                 </div>
 
-                <p className="m-0 text-secondary" style={{ fontSize: 16, lineHeight: 1.5 }}>
-                  {it.text}
-                </p>
+                <p className="m-0 text-secondary develop-text">{it.text}</p>
               </li>
             ))}
           </ul>
