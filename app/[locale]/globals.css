@@ -772,6 +772,7 @@ body.modal-open {
 
 button.btn {
   font-family: "Poppins", sans-serif !important;
+  border-radius: 180px;
 }
 
 .arrow-icon_desktop {
