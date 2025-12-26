@@ -21,7 +21,7 @@ body {
   background-size: auto 100%;
   background-position: left top;
   background-attachment: scroll;
-  background-color: #F3F4F9;
+  background-color: #f3f4f9;
 }
 
 .app-layout {
@@ -223,6 +223,7 @@ body {
 }
 
 .hero-section {
+  min-height: 100vh;
   padding: 80px 0 140px;
   overflow: hidden;
 }
@@ -501,10 +502,10 @@ body.modal-open {
 }
 
 .modal-content {
-    min-height: 20vh;
-    border-radius: 25px;
-    overflow: hidden;
-  }
+  min-height: 20vh;
+  border-radius: 25px;
+  overflow: hidden;
+}
 
 @media (max-width: 576px) {
   .modal-submit-btn {
@@ -573,7 +574,8 @@ body.modal-open {
 
 .modal,
 .modal * {
-  font-family: var(--font-poppins), "Poppins Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-family: var(--font-poppins), "Poppins Fallback", system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif !important;
 }
 
 .modal .modal-content {
@@ -595,9 +597,15 @@ body.modal-open {
 }
 
 @media (max-width: 576px) {
-  .modal .modal-content { font-size: 16px; }
-  .modal .modal-title { font-size: 18px; }
-  .modal .form-control { font-size: 16px; }
+  .modal .modal-content {
+    font-size: 16px;
+  }
+  .modal .modal-title {
+    font-size: 18px;
+  }
+  .modal .form-control {
+    font-size: 16px;
+  }
 }
 
 .modal .modal-body .form-group {
@@ -630,8 +638,8 @@ body.modal-open {
   margin-bottom: 30px;
   margin-top: -20px;
   font-family: var(--font-ua), Inter, system-ui, sans-serif !important;
-  font-size: 30px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 800;
   line-height: 1.2;
   color: #313450;
 }
@@ -642,7 +650,8 @@ body.modal-open {
 }
 
 .develop-text {
-  font-family: var(--font-poppins), "Poppins Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-family: var(--font-poppins), "Poppins Fallback", system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif !important;
   font-size: 18px;
   line-height: 1.55;
 }
@@ -650,7 +659,7 @@ body.modal-open {
 .develop-icon-wrap {
   width: 42px;
   height: 42px;
-  background: rgba(13, 110, 253, 0.10);
+  background: rgba(13, 110, 253, 0.1);
 }
 
 .develop-icon {
@@ -658,9 +667,16 @@ body.modal-open {
 }
 
 .develop-icon-wrap {
-  width: 42px;
-  height: 42px;
+  width: 52px;
+  height: 52px;
   border-radius: 12px;
+}
+
+.develop-article {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 40px;
 }
 
 .develop-icon {
@@ -668,37 +684,73 @@ body.modal-open {
 }
 
 /* SPORT & entertainment — зелений (енергія/екшн) */
-.develop-sport { background: rgba(34, 197, 94, 0.12); }
-.develop-sport .develop-icon { color: #22c55e; }
+.develop-sport {
+  background: rgba(34, 197, 94, 0.12);
+}
+.develop-sport .develop-icon {
+  color: #22c55e;
+}
 
 /* ESPORTS — фіолетовий/неон (гейм вайб) */
-.develop-esports { background: rgba(168, 85, 247, 0.12); }
-.develop-esports .develop-icon { color: #a855f7; }
+.develop-esports {
+  background: rgba(168, 85, 247, 0.12);
+}
+.develop-esports .develop-icon {
+  color: #a855f7;
+}
 
 /* AUTO — помаранчевий (швидкість/дорога) */
-.develop-auto { background: rgba(249, 115, 22, 0.12); }
-.develop-auto .develop-icon { color: #f97316; }
+.develop-auto {
+  background: rgba(249, 115, 22, 0.12);
+}
+.develop-auto .develop-icon {
+  color: #f97316;
+}
 
 /* FMCG — бірюза (свіжість/споживчі товари) */
-.develop-fmcg { background: rgba(20, 184, 166, 0.12); }
-.develop-fmcg .develop-icon { color: #14b8a6; }
+.develop-fmcg {
+  background: rgba(20, 184, 166, 0.12);
+}
+.develop-fmcg .develop-icon {
+  color: #14b8a6;
+}
 
 /* REAL ESTATE — коричневий/земля (дім/стабільність) */
-.develop-realestate { background: rgba(120, 53, 15, 0.12); }
-.develop-realestate .develop-icon { color: #78350f; }
+.develop-realestate {
+  background: rgba(120, 53, 15, 0.12);
+}
+.develop-realestate .develop-icon {
+  color: #78350f;
+}
 
 /* INDUSTRY & retail — жовтий/амбер (виробництво/контроль) */
-.develop-industry { background: rgba(245, 158, 11, 0.14); }
-.develop-industry .develop-icon { color: #f59e0b; }
+.develop-industry {
+  background: rgba(245, 158, 11, 0.14);
+}
+.develop-industry .develop-icon {
+  color: #f59e0b;
+}
 
 /* EDUCATION — синій (довіра/знання) */
-.develop-education { background: rgba(59, 130, 246, 0.12); }
-.develop-education .develop-icon { color: #3b82f6; }
+.develop-education {
+  background: rgba(59, 130, 246, 0.12);
+}
+.develop-education .develop-icon {
+  color: #3b82f6;
+}
 
 /* TECH & infra — сірий/графіт (залізо/інфраструктура) */
-.develop-infra { background: rgba(71, 85, 105, 0.12); }
-.develop-infra .develop-icon { color: #475569; }
+.develop-infra {
+  background: rgba(71, 85, 105, 0.12);
+}
+.develop-infra .develop-icon {
+  color: #475569;
+}
 
 /* MEDIA & marketing — рожевий (креатив/контент) */
-.develop-media { background: rgba(236, 72, 153, 0.12); }
-.develop-media .develop-icon { color: #ec4899; }
+.develop-media {
+  background: rgba(236, 72, 153, 0.12);
+}
+.develop-media .develop-icon {
+  color: #ec4899;
+}
