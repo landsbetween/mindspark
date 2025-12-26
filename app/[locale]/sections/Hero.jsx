@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ConsultationModal from "@/components/ConsultationModal";
 import DevelopAIsolutions from "../developAIsolutions/page";
+import ConsultationBlock from "../advice/page"
 
 export default function Hero() {
   const pathname = usePathname();
@@ -52,6 +53,9 @@ export default function Hero() {
       </section>
       <section className="develop-section">
         <DevelopAIsolutions />
+      </section>
+      <section className="advice">
+        <ConsultationBlock />
       </section>
     </div>
   );
