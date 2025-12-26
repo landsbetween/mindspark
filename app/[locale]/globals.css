@@ -766,3 +766,23 @@ body.modal-open {
 button.btn {
   font-family: "Poppins", sans-serif !important;
 }
+
+.arrow-icon_desktop {
+  display: none;
+}
+.arrow-icon_mobile {
+  display: block;
+}
+
+@media (min-width:768px) {
+  .arrow-icon_mobile {
+    display: none;
+  }
+  .arrow-icon_desktop {
+    display: block;
+    position: relative;
+    left: -180px;
+    top: 50px;
+    transform: rotate(10deg);
+  }
+}

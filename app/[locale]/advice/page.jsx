@@ -6,7 +6,6 @@ import { t } from "@/lib/t";
 import { usePathname } from "next/navigation";
 
 export default function ConsultationBlock() {
-    
   const pathname = usePathname();
   const parts = pathname.split("/").filter(Boolean);
   const locale = parts[0] === "en" ? "en" : "ua";
@@ -51,13 +50,19 @@ export default function ConsultationBlock() {
         <div className="mt-4 d-flex justify-content-center flex-column align-items-center gap-3">
           <svg
             role="presentation"
-            className="t580__arrow-icon_mobile"
-            style={{ fill: "#c9c9c9", width: "35px" }}
+            className="arrow-icon_mobile"
+            style={{ fill: "#c9c9c9", width: "30px" }}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 35 70"
           >
             <path d="M31.5 47c-1.1-.9-2.7-.7-3.5.4L20.2 57V5.8c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5V57l-7.8-9.7c-.8-1-2.4-1.2-3.5-.3-1.1.9-1.2 2.4-.4 3.5l12.2 15.2c.5.6 1.2.9 1.9.9s1.5-.3 1.9-.9l12.2-15.2c1-1.1.9-2.6-.2-3.5z"></path>
           </svg>
+          <img
+            src="/arrow.png"
+            alt="arrow"
+            className="arrow-icon_desktop"
+            style={{ fill: "#c9c9c9", width: "60px" }}
+          />
 
           <button
             className="btn"
