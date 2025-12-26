@@ -754,3 +754,15 @@ body.modal-open {
 .develop-media .develop-icon {
   color: #ec4899;
 }
+
+.t580__title strong {
+  font-family: "Inter", sans-serif !important;
+}
+
+.t580__descr span {
+  font-family: "Poppins", sans-serif !important;
+}
+
+button.btn {
+  font-family: "Poppins", sans-serif !important;
+}
