@@ -36,7 +36,7 @@ export default function ConsultationBlock() {
 
         <p
           className="t580__descr mx-auto"
-          style={{ color: "#000000", maxWidth: "500px" }}
+          style={{ color: "#000000", maxWidth: "550px" }}
         >
           <span style={{ fontFamily: "Arial" }}>
             {t(locale, "advice_give_contacts")}
