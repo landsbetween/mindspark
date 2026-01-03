@@ -27,7 +27,6 @@ export default function ConsultationBlock() {
           className="t580__title"
           style={{
             fontSize: "30px",
-            fontFamily: "INTERNETRAL",
             color: "#000000",
           }}
         >

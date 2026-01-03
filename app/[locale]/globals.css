@@ -393,6 +393,8 @@ body {
 }
 
 html[lang="en"] .text-color,
+html[lang="en"] .t580__title,
+html[lang="en"] .task_title_text,
 html[lang="en"] .hero-prefix {
   font-family: var(--font-archivo) !important;
 }
@@ -407,6 +409,8 @@ html[lang="en"] .hero-text {
 }
 
 html[lang="ua"] .text-color,
+html[lang="ua"] .t580__title,
+html[lang="ua"] .task_title_text,
 html[lang="ua"] .hero-prefix {
   font-family: var(--font-ua) !important;
 }
@@ -755,10 +759,6 @@ body.modal-open {
   color: #ec4899;
 }
 
-.t580__title strong {
-  font-family: "Inter", sans-serif !important;
-}
-
 .advice_give_find {
   font-family: "Poppins", sans-serif !important;
   font-size: 18px !important;
@@ -816,10 +816,6 @@ button.btn {
   text-align: center;
 }
 
-.task_title_text {
-  font-size: 30px;
-}
-
 .task_list {
   list-style: none;
   padding: 0;
@@ -871,9 +867,7 @@ button.btn {
   color: #313450;
 }
 
-.task_title_text,
-.task_title_text strong {
-  font-family: "Inter", sans-serif !important;
+.task_title_text{
   font-size: 30px;
   font-weight: 700;
   line-height: 1.25;
