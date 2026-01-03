@@ -35,16 +35,11 @@ export default function ConsultationBlock() {
         </h2>
 
         <p
-          className="t580__descr mx-auto"
-          style={{ color: "#000000", maxWidth: "550px" }}
+          className="advice_give_find"
         >
-          <span style={{ fontFamily: "Arial" }}>
             {t(locale, "advice_give_contacts")}
-          </span>
           <br />
-          <span style={{ fontFamily: "Arial" }}>
             {t(locale, "advice_find_solution")}
-          </span>
         </p>
 
         <div className="mt-4 d-flex justify-content-center flex-column align-items-center gap-3">
