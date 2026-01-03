@@ -845,7 +845,16 @@ button.btn {
 }
 
 .task_text {
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 21px;
+  line-height: 1.55;
+  color: #313450;
+}
+
+.task_title_text,
+.task_title_text strong {
+  font-family: "Inter", sans-serif !important;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
 }
