@@ -13,7 +13,6 @@ export default function ConsultationBlock() {
   return (
     <section
       id="rec1245043876"
-      className="t-rec t-rec_pt_135 t-rec_pb_135 t580"
       style={{
         paddingTop: "135px",
         paddingBottom: "135px",

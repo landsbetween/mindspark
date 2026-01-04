@@ -8,6 +8,7 @@ import ConsultationModal from "@/components/ConsultationModal";
 import DevelopAIsolutions from "../developAIsolutions/page";
 import ConsultationBlock from "../advice/page"
 import TasksExamplesBlock from "../task/page";
+import AdvantagesBlock from "../advantages/page";
 
 export default function Hero() {
   const pathname = usePathname();
@@ -60,6 +61,9 @@ export default function Hero() {
       </section>
       <section className="task">
         <TasksExamplesBlock />
+      </section>
+      <section className="advantages">
+        <AdvantagesBlock />
       </section>
     </div>
   );
