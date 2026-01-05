@@ -42,7 +42,7 @@ export default function AdvantagesBlock() {
   ];
 
   return (
-    <section style={{ paddingBottom: "100px" }}>
+    <section className="advantages_section">
       <div className="container">
         <h2 className="text-center advantages__title">
           <strong>{t(locale, "advantages_title")}</strong>

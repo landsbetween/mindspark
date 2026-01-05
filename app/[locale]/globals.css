@@ -883,6 +883,7 @@ button.btn {
 
 .advantages__title {
   margin-bottom: 85px;
+  font-size: 30px !important;
 }
 
 @media screen and (max-width: 960px) {
@@ -891,8 +892,18 @@ button.btn {
   }
 }
 
+.advantages_section {
+  background-color: #ffffff;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+
 .advantages__container {
   row-gap: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .advantages_icon {
@@ -904,9 +915,9 @@ button.btn {
 }
 
 .advantages__icon {
-  font-size: 70px;
+  font-size: 100px;
   line-height: 1;
-  color: #000;
+  color: #4e6ef1;
 }
 
 .advantages_wrappercenter {

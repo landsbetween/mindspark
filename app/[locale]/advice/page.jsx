@@ -58,12 +58,11 @@ export default function ConsultationBlock() {
           />
 
           <button
-            className="btn"
+            type="button"
+            className="btn btn-primary btn-lg"
             style={{
-              color: "#ffffff",
-              backgroundColor: "#000000",
               border: "none",
-              padding: "14px 26px",
+              padding: "14px 22px",
               fontSize: "18px",
               fontWeight: "bold",
               cursor: "pointer",
