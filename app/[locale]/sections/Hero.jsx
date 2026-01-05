@@ -9,6 +9,7 @@ import DevelopAIsolutions from "../developAIsolutions/page";
 import ConsultationBlock from "../advice/page"
 import TasksExamplesBlock from "../task/page";
 import AdvantagesBlock from "../advantages/page";
+import HowWeWorkBlock from "../work/page";
 
 export default function Hero() {
   const pathname = usePathname();
@@ -64,6 +65,9 @@ export default function Hero() {
       </section>
       <section className="advantages">
         <AdvantagesBlock />
+      </section>
+      <section className="work">
+        <HowWeWorkBlock />
       </section>
     </div>
   );

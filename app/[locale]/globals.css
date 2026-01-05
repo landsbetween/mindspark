@@ -399,6 +399,7 @@ html[lang="en"] .t580__title,
 html[lang="en"] .task_title_text,
 html[lang="en"] .advantages__title,
 html[lang="en"] .advantages_item_title,
+html[lang="en"] .how_title,
 html[lang="en"] .hero-prefix {
   font-family: var(--font-archivo) !important;
 }
@@ -419,6 +420,7 @@ html[lang="ua"] .t580__title,
 html[lang="ua"] .task_title_text,
 html[lang="ua"] .advantages__title,
 html[lang="ua"] .advantages_item_title,
+html[lang="ua"] .how_title,
 html[lang="ua"] .hero-prefix {
   font-family: var(--font-ua) !important;
 }
@@ -932,4 +934,206 @@ button.btn {
 
 .advantages_item_description{
   font-size: 16px;
+}
+
+
+.how_section {
+  padding: 150px 0;
+}
+
+.how_wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.how_header {
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+.how_title {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.how_list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  max-width: 980px;
+}
+
+.how_list::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.how_item {
+  margin: 0;
+  padding: 22px 100px;
+}
+
+.how_row {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.how_side {
+  max-width: 360px;
+}
+
+.how_left {
+  justify-self: end;
+  text-align: right;
+}
+
+.how_right {
+  justify-self: start;
+  text-align: left;
+}
+
+.isOff {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.isOn {
+  opacity: 1;
+}
+
+.how_mid {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how_dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #1c1c1c;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.how_dot_num {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.how_item_title {
+  font-size: 22px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0 0 10px 0;
+  font-weight: 900;
+}
+
+.how_item_descr {
+  font-size: 16px;
+  line-height: 1.55;
+  font-family: Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .how_section {
+    padding: 90px 0;
+  }
+
+  .how_header {
+    margin-bottom: 40px;
+  }
+
+  .how_list {
+    max-width: 700px;
+  }
+
+  .how_list::before {
+    left: 32px;
+    transform: none;
+    top: 0;
+    bottom: 0;
+  }
+
+  .how_item {
+    padding: 0;
+    margin: 0 0 28px 0;
+  }
+
+  .how_row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .how_mid {
+    width: 64px;
+    flex: 0 0 64px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .how_dot {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  .how_left,
+  .how_right {
+    max-width: none;
+    text-align: left;
+    justify-self: auto;
+  }
+
+  .how_left.isOff,
+  .how_right.isOff {
+    display: none;
+  }
+
+  .how_left {
+    justify-self: auto;
+  }
+  .how_right {
+    justify-self: auto;
+  }
+  .how_item_title {
+    margin: 0 0 6px 0;
+  }
+  .how_mid {
+    order: 1;
+  }
+
+  .how_left,
+  .how_right {
+    order: 2;
+    flex: 1 1 auto;
+  }
 }
