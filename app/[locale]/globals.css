@@ -971,17 +971,19 @@ button.btn {
   padding: 0;
   position: relative;
   max-width: 980px;
+  --how-line-top: 0px;
+  --how-line-bottom: 0px;
 }
 
 .how_list::before {
   content: "";
   position: absolute;
-  top: 60px;
-  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
   background: #4e6ef1;
+  top: var(--how-line-top);
+  height: calc(var(--how-line-bottom) - var(--how-line-top));
 }
 
 .how_item {
