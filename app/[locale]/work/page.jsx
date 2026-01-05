@@ -12,26 +12,24 @@ export default function HowWeWorkBlock() {
 
   const items = [
     {
-      title: "Аналіз завдання та бізнес-вимог",
-      descr: "Обговорюємо цілі, визначаємо ключові показники успіху.",
+      titleKey: "how_item_1_title",
+      descrKey: "how_item_1_descr",
     },
     {
-      title: "Прототипування",
-      descr: "Створюємо мінімальний робочий варіант для перевірки гіпотез.",
+      titleKey: "how_item_2_title",
+      descrKey: "how_item_2_descr",
     },
     {
-      title: "Розробка",
-      descr:
-        "Будуємо систему на базі перевірених технологій та інтегруємо з бізнес-інфраструктурою.",
+      titleKey: "how_item_3_title",
+      descrKey: "how_item_3_descr",
     },
     {
-      title: "Впровадження та навчання",
-      descr:
-        "Забезпечуємо плавний запуск, навчаємо співробітників, супроводжуємо перші релізи.",
+      titleKey: "how_item_4_title",
+      descrKey: "how_item_4_descr",
     },
     {
-      title: "Підтримка та розвиток",
-      descr: "Оптимізуємо та масштабуємо рішення під зростаючі потреби.",
+      titleKey: "how_item_5_title",
+      descrKey: "how_item_5_descr",
     },
   ];
 
@@ -58,14 +56,16 @@ export default function HowWeWorkBlock() {
                   <div
                     className={`how_side how_left ${isLeft ? "isOn" : "isOff"}`}
                   >
-                    {isLeft ? (
+                    {isLeft && (
                       <>
                         <div className="how_item_title">
-                          <strong>{item.title}</strong>
+                          <strong>{t(locale, item.titleKey)}</strong>
                         </div>
-                        <div className="how_item_descr">{item.descr}</div>
+                        <div className="how_item_descr">
+                          {t(locale, item.descrKey)}
+                        </div>
                       </>
-                    ) : null}
+                    )}
                   </div>
 
                   <div className="how_mid" aria-hidden="true">
@@ -79,14 +79,16 @@ export default function HowWeWorkBlock() {
                       !isLeft ? "isOn" : "isOff"
                     }`}
                   >
-                    {!isLeft ? (
+                    {!isLeft && (
                       <>
                         <div className="how_item_title">
-                          <strong>{item.title}</strong>
+                          <strong>{t(locale, item.titleKey)}</strong>
                         </div>
-                        <div className="how_item_descr">{item.descr}</div>
+                        <div className="how_item_descr">
+                          {t(locale, item.descrKey)}
+                        </div>
                       </>
-                    ) : null}
+                    )}
                   </div>
                 </div>
               </li>
