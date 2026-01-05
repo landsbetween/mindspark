@@ -69,6 +69,9 @@ export default function Hero() {
       <section className="work">
         <HowWeWorkBlock />
       </section>
+      <section className="advice">
+        <ConsultationBlock />
+      </section>
     </div>
   );
 }
