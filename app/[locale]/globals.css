@@ -993,7 +993,7 @@ button.btn {
 }
 
 .how_side {
-  max-width: 360px;
+  max-width: 380px;
 }
 
 .how_left {
@@ -1135,5 +1135,25 @@ button.btn {
   .how_right {
     order: 2;
     flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 850px) and (min-width: 701px) {
+  .how_item {
+    padding: 22px 40px;
+  }
+
+  .how_row {
+    grid-template-columns: 1fr 64px 1fr;
+    column-gap: 14px;
+  }
+
+  .how_side {
+    max-width: 320px;
+  }
+
+  .how_dot {
+    width: 40px;
+    height: 40px;
   }
 }
