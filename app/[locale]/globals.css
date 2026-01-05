@@ -972,8 +972,8 @@ button.btn {
 .how_list::before {
   content: "";
   position: absolute;
-  top: 10px;
-  bottom: 10px;
+  top: 60px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
@@ -1075,7 +1075,7 @@ button.btn {
     left: 32px;
     transform: none;
     top: 0;
-    bottom: 0;
+    bottom: 70px;
   }
 
   .how_item {
