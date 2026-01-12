@@ -22,7 +22,7 @@ export default function AiAgentsAccordionBlock() {
       <div className="ai_agents_container">
         <div className="ai_agents_title_wrap" style={{ textAlign: "center" }}>
           <h2 className="ai_agents_title">
-            {t(locale, "ai_agents_acc_title")}
+            <strong>{t(locale, "ai_agents_acc_title")}</strong>
           </h2>
         </div>
 
