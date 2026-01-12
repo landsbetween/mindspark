@@ -10,6 +10,8 @@ import ConsultationBlock from "../advice/page"
 import TasksExamplesBlock from "../task/page";
 import AdvantagesBlock from "../advantages/page";
 import HowWeWorkBlock from "../work/page";
+import FaqAccordionBlock from "../faq/page";
+import AiAgentsAccordionBlock from "../faq/page";
 
 export default function Hero() {
   const pathname = usePathname();
@@ -71,6 +73,9 @@ export default function Hero() {
       </section>
       <section className="advice">
         <ConsultationBlock />
+      </section>
+      <section className="FAQ">
+        <AiAgentsAccordionBlock/>
       </section>
     </div>
   );
