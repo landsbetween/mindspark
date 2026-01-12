@@ -20,7 +20,7 @@ export default function AiAgentsAccordionBlock() {
       data-record-type="508"
     >
       <div className="ai_agents_container">
-        <div className="ai_agents_title_wrap">
+        <div className="ai_agents_title_wrap" style={{ textAlign: "center" }}>
           <h2 className="ai_agents_title">
             <strong>{t(locale, "ai_agents_acc_title")}</strong>
           </h2>
@@ -30,7 +30,7 @@ export default function AiAgentsAccordionBlock() {
           <div className="accordion-item">
             <h2 className="accordion-header" id="ai-headingOne">
               <button
-                className="accordion-button"
+                className="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#ai-collapseOne"
