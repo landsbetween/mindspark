@@ -433,6 +433,14 @@ html[lang="ua"] .footer_subline,
 html[lang="en"] .footer_subline,
 html[lang="ua"] .footer_btn,
 html[lang="en"] .footer_btn,
+html[lang="ua"] .ms_chat_form,
+html[lang="en"] .ms_chat_form,
+html[lang="ua"] .ms_chat_dot,
+html[lang="en"] .ms_chat_dot,
+html[lang="ua"] .ms_chat_msg,
+html[lang="en"] .ms_chat_msg,
+html[lang="ua"] .ms_chat_form input::placeholder,
+html[lang="en"] .ms_chat_form input::placeholder,
 html[lang="en"] .hero-text {
   font-family: var(--font-poppins) !important;
 }
@@ -1898,4 +1906,16 @@ button.btn {
       padding-bottom: calc(env(safe-area-inset-bottom) + 10px) !important;
     }
   }
+}
+
+.ms_chat_refresh {
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ms_chat_refresh {
+  padding-bottom: 5px;
 }
