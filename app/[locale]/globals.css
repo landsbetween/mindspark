@@ -404,6 +404,8 @@ html[lang="en"] .how_item_title,
 html[lang="en"] .ai_agents_title,
 html[lang="en"] .pricing_tiers_title,
 html[lang="en"] .footer_line,
+html[lang="en"] .ms_chat_title,
+html[lang="en"] .ms_chat_subtitle,
 html[lang="en"] .hero-prefix {
   font-family: var(--font-archivo) !important;
 }
@@ -445,6 +447,8 @@ html[lang="ua"] .how_item_title,
 html[lang="ua"] .ai_agents_title,
 html[lang="ua"] .pricing_tiers_title,
 html[lang="ua"] .footer_line,
+html[lang="ua"] .ms_chat_title,
+html[lang="ua"] .ms_chat_subtitle,
 html[lang="ua"] .hero-prefix {
   font-family: var(--font-ua) !important;
 }
@@ -1711,7 +1715,7 @@ button.btn {
 .ms_chat_title {
   margin: 0;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--ms_text);
   line-height: 1.25;
 }
