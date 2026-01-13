@@ -1179,7 +1179,7 @@ button.btn {
 }
 
 .ai_agents_section {
-  padding: 130px 0;
+  padding: 100px 0;
 }
 
 .ai_agents_container {
@@ -1339,6 +1339,7 @@ button.btn {
 
 .pricing_tiers_section {
   padding: 64px 0;
+  background: #EFEFEF;
 }
 
 .pricing_tiers_container {
