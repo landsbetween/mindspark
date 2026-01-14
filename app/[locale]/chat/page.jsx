@@ -81,17 +81,6 @@ export default function ChatPage() {
 
         console.log("n8n widget loaded");
       `}</Script>
-
-      <div style={{ minHeight: "60vh", padding: 24 }}>
-        <h1 style={{ fontSize: 22, marginBottom: 8 }}>
-          {locale === "en" ? "Chat" : "Чат"}
-        </h1>
-        <p style={{ opacity: 0.8 }}>
-          {locale === "en"
-            ? "If the widget doesn't appear, open DevTools Console."
-            : "Якщо віджет не зʼявився — відкрий Console (F12)."}
-        </p>
-      </div>
     </>
   );
 }
