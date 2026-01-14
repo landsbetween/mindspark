@@ -2,11 +2,25 @@
 
 import Script from "next/script";
 import { usePathname } from "next/navigation";
+import { t } from "@/lib/t";
 
 export default function ChatPage() {
   const pathname = usePathname();
   const parts = pathname.split("/").filter(Boolean);
   const locale = parts[0] === "en" ? "en" : "ua";
+
+  const cw = t(locale, "chatWidget");
+
+  const theme = {
+    chatWindow: {
+      ...(cw?.ui || {}),
+      title: cw?.title || "AI агент MindSpark",
+      titleAvatarSrc: cw?.titleAvatarSrc || "",
+      welcomeMessage: cw?.welcomeMessage || "",
+      errorMessage: cw?.errorMessage || "",
+      starterPrompts: Array.isArray(cw?.starterPrompts) ? cw.starterPrompts : [],
+    },
+  };
 
   return (
     <>
@@ -14,8 +28,6 @@ export default function ChatPage() {
         {`
           window.myChatCallbacks = {
             onWidgetOpen: function (data) {
-              console.log("Widget opened:", data);
-
               if (window.innerWidth <= 768) {
                 const scrollY = window.scrollY || document.documentElement.scrollTop;
                 document.body.style.position = 'fixed';
@@ -33,9 +45,7 @@ export default function ChatPage() {
               }
             },
 
-            onWidgetClose: function (data) {
-              console.log("Widget closed:", data);
-
+            onWidgetClose: function () {
               if (window.innerWidth <= 768) {
                 const scrollY = parseInt(document.body.dataset.scrollLock || '0', 10);
                 document.removeEventListener('touchmove', document._preventTouchMove, { passive: false });
@@ -51,36 +61,32 @@ export default function ChatPage() {
             },
 
             beforeSubmit: function (data) {
-              // return { ...data, locale: "${locale}" };
+              data.metadata = data.metadata || {};
+              data.metadata.locale = "${locale}";
               return data;
             },
 
-            onResponseReceived: function (data) {},
             onError: function (data) { console.log("Widget error:", data); },
 
-            onChatClear: function (data) {
-              console.log("Chat cleared:", data);
+            onChatClear: function () {
               const newId = crypto.randomUUID();
               localStorage.setItem("chatSessionId", newId);
-              console.log("NEW session ID:", newId);
             }
           };
         `}
       </Script>
 
-      <Script
-        id="ms-chat-embed"
-        type="module"
-        strategy="afterInteractive"
-      >{`
-        import n8nChatUiWidget from 'https://proxy.n8nchatui.com/api/embed/4ozbsB';
+      <Script id="ms-chat-embed" type="module" strategy="afterInteractive">
+        {`
+          import n8nChatUiWidget from 'https://proxy.n8nchatui.com/api/embed/4ozbsB';
 
-        n8nChatUiWidget.load({
-          callbackRegistry: "myChatCallbacks",
-        });
-
-        console.log("n8n widget loaded");
-      `}</Script>
+          n8nChatUiWidget.load({
+            callbackRegistry: "myChatCallbacks",
+            theme: ${JSON.stringify(theme)},
+            metadata: { locale: "${locale}" },
+          });
+        `}
+      </Script>
     </>
   );
 }
