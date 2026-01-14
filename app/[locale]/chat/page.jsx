@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { messages } from "@/lib/messages";
 
 export default function ChatWidget() {
   const pathname = usePathname();
   const parts = pathname.split("/").filter(Boolean);
   const locale = parts[0] === "en" ? "en" : "ua";
+
+  const chat = messages?.[locale]?.chat || messages.ua.chat;
 
   const WEBHOOK_URL =
     "https://n8ndevserver.online/webhook/5a5dfc76-c593-4f75-a40a-f419f1ad143d";
@@ -14,7 +17,7 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
-  const [messages, setMessages] = useState([]);
+  const [msgs, setMsgs] = useState([]);
   const [lockedScrollY, setLockedScrollY] = useState(0);
 
   const messagesRef = useRef(null);
@@ -68,10 +71,7 @@ export default function ChatWidget() {
   const openChat = () => setOpen(true);
   const closeChat = () => setOpen(false);
 
-  const buildHello = () =>
-    locale === "en"
-      ? "Hi! Tell me what your business does and what you want to automate or improve. I’m MindSpark AI agent."
-      : "Привіт! Розкажіть, у якій сфері ваш бізнес і що треба автоматизувати/покращити. Я — AI агент MindSpark.";
+  const buildHello = () => chat.hello;
 
   const refreshChat = () => {
     if (abortRef.current) abortRef.current.abort();
@@ -86,7 +86,7 @@ export default function ChatWidget() {
       setSessionId(newId);
     }
 
-    setMessages([{ role: "bot", text: buildHello() }]);
+    setMsgs([{ role: "bot", text: buildHello() }]);
 
     setTimeout(() => {
       inputRef.current?.focus();
@@ -114,9 +114,7 @@ export default function ChatWidget() {
     return () => {
       vv.removeEventListener("resize", onResize);
       vv.removeEventListener("scroll", onResize);
-      document.documentElement.style.removeProperty(
-        "--ms_chat_keyboard_offset"
-      );
+      document.documentElement.style.removeProperty("--ms_chat_keyboard_offset");
     };
   }, []);
 
@@ -130,23 +128,18 @@ export default function ChatWidget() {
 
     lockPageScroll();
 
-    const hello =
-      locale === "en"
-        ? "Hi! Tell me what your business does and what you want to automate or improve. I’m MindSpark AI agent."
-        : "Привіт! Розкажіть, у якій сфері ваш бізнес і що треба автоматизувати/покращити. Я — AI агент MindSpark.";
+    setMsgs([{ role: "bot", text: buildHello() }]);
 
-    setMessages([{ role: "bot", text: buildHello() }]);
-
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       inputRef.current?.focus();
       scrollToBottom();
     }, 220);
 
     return () => {
-      clearTimeout(t);
+      clearTimeout(timer);
       unlockPageScroll();
     };
-  }, [open]);
+  }, [open, locale]);
 
   useEffect(() => {
     if (!open) return;
@@ -160,7 +153,7 @@ export default function ChatWidget() {
   useEffect(() => {
     if (!open) return;
     scrollToBottom();
-  }, [messages.length, typing, open]);
+  }, [msgs.length, typing, open]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -168,7 +161,7 @@ export default function ChatWidget() {
     if (!text || typing) return;
 
     setInput("");
-    setMessages((prev) => [...prev, { role: "user", text }]);
+    setMsgs((prev) => [...prev, { role: "user", text }]);
     setTyping(true);
 
     const controller = new AbortController();
@@ -184,10 +177,7 @@ export default function ChatWidget() {
 
       if (!resp.body) {
         const fallback = await resp.text();
-        setMessages((prev) => [
-          ...prev,
-          { role: "bot", text: fallback || "OK" },
-        ]);
+        setMsgs((prev) => [...prev, { role: "bot", text: fallback || "OK" }]);
         return;
       }
 
@@ -195,7 +185,7 @@ export default function ChatWidget() {
       const decoder = new TextDecoder();
 
       let botIndex = -1;
-      setMessages((prev) => {
+      setMsgs((prev) => {
         botIndex = prev.length;
         return [...prev, { role: "bot", text: "" }];
       });
@@ -220,7 +210,7 @@ export default function ChatWidget() {
             if (json?.type === "item" && typeof json.content === "string") {
               fullText += json.content;
 
-              setMessages((prev) => {
+              setMsgs((prev) => {
                 if (botIndex < 0 || botIndex >= prev.length) return prev;
                 const next = [...prev];
                 next[botIndex] = { role: "bot", text: fullText };
@@ -234,14 +224,7 @@ export default function ChatWidget() {
       }
     } catch (err) {
       if (err?.name === "AbortError") return;
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "bot",
-          text:
-            locale === "en" ? "Error. Try again." : "Помилка. Спробуй ще раз.",
-        },
-      ]);
+      setMsgs((prev) => [...prev, { role: "bot", text: chat.error }]);
     } finally {
       setTyping(false);
       abortRef.current = null;
@@ -254,7 +237,7 @@ export default function ChatWidget() {
       <button
         className={`ms_chat_button ${open ? "is-hidden" : ""}`}
         type="button"
-        aria-label={locale === "en" ? "Open chat" : "Відкрити чат"}
+        aria-label={chat.openLabel}
         onClick={openChat}
       >
         <svg
@@ -288,10 +271,10 @@ export default function ChatWidget() {
             <button
               className="ms_chat_refresh"
               type="button"
-              aria-label={locale === "en" ? "Refresh chat" : "Оновити чат"}
-              onClick={() => refreshChat()}
+              aria-label={chat.refreshLabel}
+              onClick={refreshChat}
               disabled={typing}
-              title={locale === "en" ? "Refresh chat" : "Оновити чат"}
+              title={chat.refreshLabel}
             >
               ⟳
             </button>
@@ -299,9 +282,9 @@ export default function ChatWidget() {
             <button
               className="ms_chat_close"
               type="button"
-              aria-label={locale === "en" ? "Close" : "Закрити"}
+              aria-label={chat.closeLabel}
               onClick={closeChat}
-              title={locale === "en" ? "Close" : "Закрити"}
+              title={chat.closeLabel}
             >
               ✕
             </button>
@@ -309,15 +292,13 @@ export default function ChatWidget() {
 
           <div className="ms_chat_head">
             <h2 className="ms_chat_title" id="ms_chat_title">
-              {locale === "en" ? "Chat with AI Agent" : "Чат з AI Agent"}
+              {chat.title}
             </h2>
-            <div className="ms_chat_subtitle">
-              {locale === "en" ? "MindSpark Support" : "MindSpark підтримка"}
-            </div>
+            <div className="ms_chat_subtitle">{chat.subtitle}</div>
           </div>
 
           <div className="ms_chat_messages" ref={messagesRef}>
-            {messages.map((m, i) => (
+            {msgs.map((m, i) => (
               <div
                 key={i}
                 className={`ms_chat_msg ${
@@ -343,16 +324,12 @@ export default function ChatWidget() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder={
-                locale === "en"
-                  ? "Type your message..."
-                  : "Введіть повідомлення..."
-              }
+              placeholder={chat.inputPlaceholder}
               required
               disabled={!open || typing}
             />
             <button type="submit" disabled={!open || typing}>
-              {locale === "en" ? "Send" : "Надіслати"}
+              {chat.send}
             </button>
           </form>
         </div>
