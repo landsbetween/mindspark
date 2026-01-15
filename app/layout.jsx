@@ -1,5 +1,5 @@
 import { Poppins, Archivo_Black, Inter } from "next/font/google";
-import ChatWidget from "./[locale]/chat/page";
+import ChatPage from "./[locale]/chat/page";
 
 const poppins = Poppins({
   subsets: ["latin", 'cyrillic'],
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable} ${archivoBlack.variable} ${robotoMono.variable}`}>
 
         {children}
-        <ChatWidget/>
+        <ChatPage/>
       </body>
     </html>
   );
