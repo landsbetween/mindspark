@@ -14,8 +14,8 @@ export default async function Blog({ params }) {
   if (!res.ok) {
     throw new Error(
       `API error: ${res.status} ${res.statusText}\n` +
-      `Content-Type: ${contentType}\n` +
-      `Body (first 200): ${raw.slice(0, 200)}`
+        `Content-Type: ${contentType}\n` +
+        `Body (first 200): ${raw.slice(0, 200)}`
     );
   }
 
@@ -30,11 +30,11 @@ export default async function Blog({ params }) {
 
   return (
     <div className="container py-5">
-      <h1 className="display-5 text-primary">Блог</h1>
+      <h1 className="blog-page-title">Блог</h1>
 
       <div className="mt-4">
         {articles.length === 0 ? (
-          <p className="text-secondary">Поки немає статей.</p>
+          <p className="blog-empty">Поки немає статей.</p>
         ) : (
           articles.map((a) => (
             <div
@@ -59,11 +59,10 @@ export default async function Blog({ params }) {
               ) : null}
 
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div className="fw-bold">{a.title}</div>
+                <div className="blog-title">{a.title}</div>
 
                 <div
-                  className="mt-3"
-                  style={{ overflowWrap: "anywhere" }}
+                  className="blog-content"
                   dangerouslySetInnerHTML={{ __html: a.content || "" }}
                 />
               </div>
