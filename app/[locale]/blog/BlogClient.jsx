@@ -17,33 +17,24 @@ export default function BlogClient({ articles }) {
     <div className="container py-5">
       <h1 className="blog-page-title">{pageTitle}</h1>
 
-      <div className="mt-4">
+      <div className="mt-4 blog-list">
         {list.length === 0 ? (
           <p className="blog-empty">{emptyText}</p>
         ) : (
           list.map((a) => (
-            <div
-              key={a.id}
-              className="border rounded p-3 mb-3 d-flex gap-3 align-items-start"
-            >
+            <article key={a.id} className="blog-card border rounded p-3 mb-3">
               {a.imageUrl ? (
-                <div style={{ width: 500, flexShrink: 0 }}>
+                <div className="blog-media">
                   <img
+                    className="blog-image"
                     src={a.imageUrl}
                     alt={a.title || ""}
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: 300,
-                      objectFit: "contain",
-                      display: "block",
-                      borderRadius: 8,
-                    }}
+                    loading="lazy"
                   />
                 </div>
               ) : null}
 
-              <div style={{ flex: 1, minWidth: 0 }}>
+              <div className="blog-body">
                 <div className="blog-title">{a.title}</div>
 
                 <div
@@ -51,7 +42,7 @@ export default function BlogClient({ articles }) {
                   dangerouslySetInnerHTML={{ __html: a.content || "" }}
                 />
               </div>
-            </div>
+            </article>
           ))
         )}
       </div>
