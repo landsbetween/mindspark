@@ -3,15 +3,20 @@
 import { t } from "@/lib/t";
 import { usePathname } from "next/navigation";
 
-export default function BlogClient({ articles }) {
+export default function BlogClient({ articles, initialLocale }) {
   const pathname = usePathname();
   const parts = pathname.split("/").filter(Boolean);
-  const locale = parts[0] === "en" ? "en" : "ua";
+  const fromPath = parts[0] === "en" ? "en" : "ua";
+
+  const locale = initialLocale === "en" ? "en" : fromPath;
 
   const pageTitle = t(locale, "blogTitle");
   const emptyText = t(locale, "blogEmpty");
 
-  const list = Array.isArray(articles) ? articles : [];
+  const list = (Array.isArray(articles) ? articles : []).filter((a) => {
+    const aLocale = (a?.locale || "").toString().trim().toLowerCase();
+    return (aLocale === "en" ? "en" : "ua") === locale;
+  });
 
   return (
     <div className="container py-5">
