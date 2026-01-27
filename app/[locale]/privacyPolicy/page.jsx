@@ -14,6 +14,9 @@ export default function PrivacyPolicyPage() {
       <div className="policy_container">
         <div className="policy_top">
           <Link href={`/${locale}`} className="policy_back">
+            <span className="policy_backIcon" aria-hidden="true">
+              ←
+            </span>
             {t(locale, "privacyPolicy_back")}
           </Link>
 

@@ -1766,14 +1766,88 @@ button.btn {
 }
 
 .policy_back {
-  display: inline-block;
-  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  opacity: 0.8;
+
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.policy_back:hover {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .policy_back:hover {
+    transform: translateX(-4px);
+    border-color: #4856efb3;
+    background: rgba(139, 92, 246, 0.08);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .policy_back {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: linear-gradient(
+      135deg,
+      rgba(61, 121, 224, 0.14),
+      rgba(72, 154, 236, 0.08),
+      rgba(255, 255, 255, 0.02)
+    );
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .policy_back:active {
+    transform: scale(0.98);
+    background: linear-gradient(
+      135deg,
+      rgba(60, 114, 195, 0.22),
+      rgba(52, 69, 168, 0.14),
+      rgba(82, 85, 225, 0.03)
+    );
+    border-color: #4856efb3;
+  }
+}
+
+.policy_back:focus-visible {
+  outline: 2px solid #4856efb3;
+  outline-offset: 3px;
+}
+
+.policy_backIcon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  line-height: 1;
+  transition: transform 0.18s ease;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .policy_backIcon {
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .policy_back:active .policy_backIcon {
+    transform: translateX(-2px);
+  }
 }
 
 .policy_title {
