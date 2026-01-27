@@ -180,15 +180,6 @@ export default function Header() {
               </Link>
             </li>
 
-            <li className="nav-item">
-              <Link
-                href={`/${locale}/contact`}
-                className="nav-link menu-color px-3"
-              >
-                {t(locale, "contact")}
-              </Link>
-            </li>
-
             <li className="nav-item d-flex align-items-center">
               <LangSwitch />
             </li>
