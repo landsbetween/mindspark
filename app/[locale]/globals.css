@@ -1512,6 +1512,10 @@ button.btn {
     max-width: 1320px;
   }
 
+  .footer_container {
+    max-width: 1320;
+  }
+
   .tier_card {
     max-width: 390px;
     flex: 1 1 420px;
@@ -1525,9 +1529,9 @@ button.btn {
 }
 
 .footer_container {
-  max-width: 1000px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 3.4%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
