@@ -4,6 +4,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { t } from "@/lib/t";
 import ConsultationModal from "@/components/ConsultationModal";
+import Link from "next/link";
 
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,9 +23,12 @@ export default function Footer() {
             <div className="footer_line">
               <strong>MindSpark</strong>
             </div>
-            <div className="footer_subline">
+            <Link
+              href={`/${locale}/privacyPolicy`}
+              className="footer_subline footer_link"
+            >
               © {year} {t(locale, "footer_rights")}
-            </div>
+            </Link>
           </div>
 
           <div className="footer_right">
