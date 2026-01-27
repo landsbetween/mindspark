@@ -1631,13 +1631,20 @@ button.btn {
 
 .blog-media {
   width: 100%;
-  max-width: 380px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.blog-card--list {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
 }
 
 .blog-image {
   width: 100%;
   height: auto;
-  max-height: 280px;
+  max-height: 980px;
   object-fit: contain;
   display: block;
   border-radius: 10px;
@@ -1711,11 +1718,13 @@ button.btn {
   }
 
   .blog-media {
-    max-width: 320px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .blog-image {
-    max-height: 240px;
+    border-radius: 10px;
   }
 }
 
@@ -1730,7 +1739,7 @@ button.btn {
   }
 
   .blog-image {
-    max-height: 240px;
+    border-radius: 10px;
   }
 
   .blog-empty {

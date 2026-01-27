@@ -11,8 +11,13 @@ export default function LangSwitch() {
   const nextLocale = currentLocale === "ua" ? "en" : "ua";
 
   const restPath = parts.slice(1).join("/");
+  const isBlogPost = parts[1] === "blog" && parts[2];
 
-  const href = restPath ? `/${nextLocale}/${restPath}` : `/${nextLocale}`;
+  const href = isBlogPost
+    ? `/${nextLocale}/blog`
+    : restPath
+      ? `/${nextLocale}/${restPath}`
+      : `/${nextLocale}`;
 
   return (
     <Link href={href} className="lang-badge menu-color">

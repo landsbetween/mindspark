@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { t } from "@/lib/t";
 import { usePathname } from "next/navigation";
 
@@ -27,26 +28,17 @@ export default function BlogClient({ articles, initialLocale }) {
           <p className="blog-empty">{emptyText}</p>
         ) : (
           list.map((a) => (
-            <article key={a.id} className="blog-card border rounded p-3 mb-3">
-              {a.imageUrl ? (
-                <div className="blog-media">
-                  <img
-                    className="blog-image"
-                    src={a.imageUrl}
-                    alt={a.title || ""}
-                    loading="lazy"
-                  />
-                </div>
-              ) : null}
-
-              <div className="blog-body">
-                <div className="blog-title">{a.title}</div>
-
-                <div
-                  className="blog-content"
-                  dangerouslySetInnerHTML={{ __html: a.content || "" }}
-                />
-              </div>
+            <article
+              key={a.id}
+              className="blog-card blog-card--list border rounded p-3 mb-3"
+            >
+              <Link
+                href={`/${locale}/blog/${a.id}`}
+                className="blog-title"
+                style={{ textDecoration: "none" }}
+              >
+                {a.title}
+              </Link>
             </article>
           ))
         )}
